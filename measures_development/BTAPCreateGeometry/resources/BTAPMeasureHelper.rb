@@ -32,6 +32,11 @@ module BTAPMeasureHelper
             arg.setDisplayName("#{argument['display_name']}")
             arg.setDefaultValue("#{argument['default_value']}".to_f)
 
+          when "Integer"
+            arg = OpenStudio::Ruleset::OSArgument.makeIntegerArgument(argument['name'], argument['is_required'])
+            arg.setDisplayName("#{argument['display_name']}")
+            arg.setDefaultValue("#{argument['default_value']}".to_i)
+
           when "Choice"
             arg = OpenStudio::Measure::OSArgument.makeChoiceArgument(argument['name'], argument['choices'], argument['is_required'])
             arg.setDisplayName(argument['display_name'])
@@ -54,6 +59,8 @@ module BTAPMeasureHelper
             end
             arg.setDisplayName(argument['display_name'])
         end
+		puts arg
+		puts argument['type'].to_s
         args << arg
       end
     end
@@ -74,6 +81,8 @@ module BTAPMeasureHelper
             values[argument['name']] = runner.getStringArgumentValue(argument['name'], user_arguments)
           when "Double"
             values[argument['name']] = runner.getDoubleArgumentValue(argument['name'], user_arguments)
+          when "Integer"
+            values[argument['name']] = runner.getIntegerArgumentValue(argument['name'], user_arguments)
           when "Bool"
             values[argument['name']] = runner.getBoolArgumentValue(argument['name'], user_arguments)
           when "StringDouble"
@@ -175,8 +184,10 @@ module BTAPMeasureTestHelper
             case argument_type(arguments[index])
               when "String", "Choice"
                 assert_equal(argument_expected['default_value'].to_s, arguments[index].defaultValueAsString, "The default value for argument #{argument_expected['name']} was #{argument_expected['default_value']}, but actual was #{arguments[index].defaultValueAsString}")
-              when "Double", "Integer"
+              when "Double"
                 assert_equal(argument_expected['default_value'].to_f, arguments[index].defaultValueAsDouble.to_f, "The default value for argument #{argument_expected['name']} was #{argument_expected['default_value']}, but actual was #{arguments[index].defaultValueAsString}")
+              when "Integer"
+                assert_equal(argument_expected['default_value'].to_i, arguments[index].defaultValueAsInteger.to_i, "The default value for argument #{argument_expected['name']} was #{argument_expected['default_value']}, but actual was #{arguments[index].defaultValueAsString}")
               when "Bool"
                 assert_equal(argument_expected['default_value'], arguments[index].defaultValueAsBool, "The default value for argument #{argument_expected['name']} was #{argument_expected['default_value']}, but actual was #{arguments[index].defaultValueAsString}")
             end
@@ -224,7 +235,38 @@ module BTAPMeasureTestHelper
               assert(runner.result.value.valueName != 'Success', "Checks did not stop a lower than limit value of #{over_min_value} for #{argument['name']}")
               puts "Success:Testing argument #{argument['name']} min limit of #{argument['min_double_value']}"
             end
-
+          end
+          if argument['type'] == 'Integer' or argument['type'] == 'StringInteger'
+            puts "testing range for #{argument['name']} "
+            #Check over max
+            if not argument['max_integer_value'].nil?
+              puts "testing max limit"
+              model = OpenStudio::Model::Model.new
+              input_arguments = @good_input_arguments.clone
+              over_max_value = argument['max_integer_value'].to_i + 1
+              over_max_value = over_max_value.to_s if argument['type'].downcase == "StringInteger".downcase
+              input_arguments[argument['name']] = over_max_value
+              puts "Testing argument #{argument['name']} max limit of #{argument['max_integer_value']}"
+              input_arguments = {'json_input' => JSON.pretty_generate(input_arguments)} if @use_json_package
+              run_measure(input_arguments, model)
+              runner = run_measure(input_arguments, model)
+              assert(runner.result.value.valueName != 'Success', "Checks did not stop a lower than limit value of #{over_max_value} for #{argument['name']}")
+              puts "Success: Testing argument #{argument['name']} max limit of #{argument['max_integer_value']}"
+            end
+            #Check over max
+            if not argument['min_integer_value'].nil?
+              puts "testing min limit"
+              model = OpenStudio::Model::Model.new
+              input_arguments = @good_input_arguments.clone
+              over_min_value = argument['min_integer_value'].to_i - 1
+              over_min_value = over_max_value.to_s if argument['type'].downcase == "StringInteger".downcase
+              input_arguments[argument['name']] = over_min_value
+              puts "Testing argument #{argument['name']} min limit of #{argument['min_integer_value']}"
+              input_arguments = {'json_input' => JSON.pretty_generate(input_arguments)} if @use_json_package
+              runner = run_measure(input_arguments, model)
+              assert(runner.result.value.valueName != 'Success', "Checks did not stop a lower than limit value of #{over_min_value} for #{argument['name']}")
+              puts "Success:Testing argument #{argument['name']} min limit of #{argument['min_integer_value']}"
+            end
           end
           if (argument['type'] == 'StringDouble') and (not argument["valid_strings"].nil?) and @use_string_double
             model = OpenStudio::Model::Model.new

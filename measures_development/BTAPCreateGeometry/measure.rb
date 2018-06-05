@@ -1,9 +1,11 @@
 # see the URL below for information on how to write OpenStudio measures
 # http://nrel.github.io/OpenStudio-user-documentation/reference/measure_writing_guide/
 require_relative 'resources/BTAPMeasureHelper'
+require_relative 'resources/btap_additions'
 # start the measure
 class BTAPCreateGeometry < OpenStudio::Measure::ModelMeasure
 
+  attr_accessor :use_json_package, :use_string_double
   #Adds helper functions to make life a bit easier and consistent.
   include(BTAPMeasureHelper)
   # human readable name
@@ -125,10 +127,7 @@ class BTAPCreateGeometry < OpenStudio::Measure::ModelMeasure
     # arguments['a_double_argument']
     # etc......
     # So write your measure code here!
-	
-	# Create a new model
-    model = OpenStudio::Model::Model.new
-	
+		
 	# Name the new model
 	
 	# Depending on the shape requested create the geometry.
@@ -137,13 +136,13 @@ class BTAPCreateGeometry < OpenStudio::Measure::ModelMeasure
 	
 		# Figure out dimensions from inputs
 		floor_area=arguments['total_floor_area']/arguments['above_grade_floors']
-        b = Math::sqrt((9/8)*(floor_area / arguments['aspect_ratio']))
+        b = Math::sqrt((9/8)*floor_area) / arguments['aspect_ratio']
         a = b * arguments['aspect_ratio']
 		# Set perimeter depth to min of 1/3 smallest section width or 4.57 (=BTAP default)
 		perimeter_depth=[([a,b].min/9),4.57].min
 		
 		# Generate the geometry
-		BTAP::Geometry::Wizards::create_shape_courtyard(model,
+		model = BTAP::Geometry::Wizards::create_shape_courtyard(model,
           length = a,
           width = b,
           courtyard_length = a/3,
@@ -152,8 +151,28 @@ class BTAPCreateGeometry < OpenStudio::Measure::ModelMeasure
           floor_to_floor_height = arguments['floor_to_floor_height'],
           plenum_height = arguments['plenum_height'],
           perimeter_zone_depth = perimeter_depth)
+	elsif arguments['building_shape'] == 'Rectangular'
+	
+		# Figure out dimensions from inputs
+		floor_area=arguments['total_floor_area']/arguments['above_grade_floors']
+        b = Math::sqrt(floor_area) / arguments['aspect_ratio']
+        a = b * arguments['aspect_ratio']
+		# Set perimeter depth to min of 1/3 smallest section width or 4.57 (=BTAP default)
+		perimeter_depth=[([a,b].min/9),4.57].min
+		
+		# Generate the geometry
+		model = BTAP::Geometry::Wizards::create_shape_rectangle(model,
+          length = a,
+          width = b,
+          above_ground_storys = arguments['above_grade_floors'],
+          under_ground_storys = 0,
+          floor_to_floor_height = arguments['floor_to_floor_height'],
+          plenum_height = arguments['plenum_height'],
+          perimeter_zone_depth = perimeter_depth,
+          initial_height = 0.0)
 	end
 	
+	puts model.to_s
 
     #Do something.
     return true
