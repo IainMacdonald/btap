@@ -172,9 +172,15 @@ class BTAPCreateGeometry < OpenStudio::Measure::ModelMeasure
           initial_height = 0.0)
 	end
 	
-	puts model.to_s
-
-    #Do something.
+    #Rotate model.
+	#t = OpenStudio::Transformation::rotation(OpenStudio::EulerAngles.new(0, 0, arguments['rotation']*Math::PI/180.0))
+	#model.getPlanarSurfaceGroups().each {|planar_surface| planar_surface.changeTransformation(t)}
+	
+    building = model.getBuilding
+	building.setName(arguments['building_name'])
+	puts building.to_s
+	#building.setNorthAxis(arguments['rotation'])
+	
     return true
   end
 end
