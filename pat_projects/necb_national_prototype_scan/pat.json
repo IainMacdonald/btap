@@ -8,16 +8,16 @@
   "remoteSettings": {
     "open": true,
     "remoteType": "Amazon Cloud",
-    "remoteServerURL": null,
+    "remoteServerURL": "http://ec2-54-156-119-218.compute-1.amazonaws.com/",
     "aws": {
-      "cluster_name": "krypton",
+      "cluster_name": "192_cpu_2x320gb_hdd_10_dollar_per_hour",
       "connected": false,
       "server_instance_type": {
-        "name": "c3.4xlarge",
-        "cpus": "16",
-        "memory": "30 GiB",
-        "storage": "2 x 160 GB",
-        "cost": "$0.84/hr"
+        "name": "c3.8xlarge",
+        "cpus": "32",
+        "memory": "60 GiB",
+        "storage": "2 x 320 GB",
+        "cost": "$1.68/hr"
       },
       "worker_instance_type": {
         "name": "c3.8xlarge",
@@ -26,47 +26,46 @@
         "storage": "2 x 320 GB",
         "cost": "$1.68/hr"
       },
-      "user_id": "plopez",
-      "worker_node_number": 4,
+      "user_id": "",
+      "worker_node_number": 5,
       "aws_tags": [],
       "openstudio_server_version": {
-        "name": "2.4.1-nrcan",
-        "notes": "Development Version of nrcan standards branch",
+        "name": "2.4.3-nrcan",
+        "notes": null,
+        "standards": {
+          "ref": "0.2.2",
+          "repo": "nrel/openstudio-standards"
+        },
+        "workflow": {
+          "ref": "1.3.2",
+          "repo": "nrel/openstudio-workflow-gem"
+        },
+        "energyplus": "8.9",
+        "radiance": "NREL 5.0.a",
+        "analysis": {
+          "ref": "1.0.0.rc18",
+          "repo": "nrel/openstudio-analysis-gem"
+        },
         "openstudio": {
-          "version_sha": "fcd9a4317a",
-          "version_number": "2.4.1",
+          "version_number": "2.4.3",
+          "version_sha": "29a61f6637",
           "url_base": "https://s3.amazonaws.com/openstudio-builds/NUMBER/OpenStudio-NUMBER.SHA-Linux.deb"
         },
-        "ami": "ami-bc997fc1",
-        "radiance": "NREL 5.0.a",
-        "workflow": {
-          "repo": "nrel/openstudio-workflow-gem",
-          "ref": "1.3.1"
+        "server": {
+          "ref": "35de016d804f7ab5b04e386e2600330f4ed01023",
+          "repo": "nrel/openstudio-server"
         },
         "R": "3.4.2",
-        "standards": {
-          "repo": "nrel/openstudio-standards",
-          "ref": "0.1.15-nrcan"
-        },
-        "analysis": {
-          "repo": "nrel/openstudio-analysis-gem",
-          "ref": "1.0.0.rc18"
-        },
-        "server": {
-          "repo": "nrel/openstudio-server",
-          "ref": "bc1fff7770131d68480379f03c817075a7c673d3"
-        },
-        "energyplus": "8.8",
+        "ami": "ami-4e5b1a31",
         "recommend": ""
       },
       "cluster_status": "terminated",
       "server": {
         "dns": null
-      },
-      "open": true
+      }
     },
     "credentials": {
-      "yamlFilename": "BRG Amazon Account",
+      "yamlFilename": "nrcan key",
       "accessKey": "AKIA****",
       "region": "us-east-1"
     }
@@ -130,16 +129,16 @@
   "openstudioMD5": "",
   "measures": [
     {
-      "measure_dir": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\BTAPCreateNECBPrototypeBuildings",
+      "measure_dir": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\btap_create_necb_prototype_building",
       "name": "btap_create_necb_prototype_building",
-      "directory": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\BTAPCreateNECBPrototypeBuildings",
-      "uid": "ae90fsd7-a651-467a-bc8d-29d310b0f937",
-      "uuid": "{ae90ffd7-a651-467a-bc8d-29d310b0f937}",
-      "version_id": "97e50b3e-5990-4cba-8df8-b21548a2c9e0",
-      "version_uuid": "{97e50b3e-5990-4cba-8df8-b21548a2c9e0}",
-      "version_modified": "20180228T202815Z",
-      "xml_checksum": "057E8D9D",
-      "display_name": "Create NECB Prototype Building",
+      "directory": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\btap_create_necb_prototype_building",
+      "uid": "3e9acd53-8602-4749-a655-7cbbe48e8b30",
+      "uuid": "{3e9acd53-8602-4749-a655-7cbbe48e8b30}",
+      "version_id": "906f93cf-f9f6-417f-94c0-a26c508b7f71",
+      "version_uuid": "{906f93cf-f9f6-417f-94c0-a26c508b7f71}",
+      "version_modified": "20180614T162709Z",
+      "xml_checksum": "2C38F48B",
+      "display_name": "BTAPCreateNECBPrototypeBuilding",
       "class_name": "BTAPCreateNECBPrototypeBuilding",
       "description": "This measure creates an NECB prototype building from scratch and uses it as the base for an analysis.",
       "modeler_description": "This will replaced the model object with a brand new model. It effectively ignores the seed model.",
@@ -150,11 +149,6 @@
           "name": "Measure Type",
           "display_name": "Measure Type",
           "value": "ModelMeasure"
-        },
-        {
-          "name": "Uses SketchUp API",
-          "display_name": "Uses SketchUp API",
-          "value": false
         }
       ],
       "arguments": [
@@ -224,87 +218,87 @@
               "Outpatient"
             ],
             "variableSetting": "Discrete",
-            "distribution": "Discrete",
+            "distribution": "Uniform",
             "discreteVariables": [
               {
                 "value": "SecondarySchool",
                 "weight": "",
-                "$$hashKey": "object:4814"
+                "$$hashKey": "object:22711"
               },
               {
                 "value": "PrimarySchool",
                 "weight": "",
-                "$$hashKey": "object:4825"
+                "$$hashKey": "object:22722"
               },
               {
                 "value": "SmallOffice",
                 "weight": "",
-                "$$hashKey": "object:4835"
+                "$$hashKey": "object:22732"
               },
               {
                 "value": "MediumOffice",
                 "weight": "",
-                "$$hashKey": "object:4845"
+                "$$hashKey": "object:7990"
               },
               {
                 "value": "LargeOffice",
                 "weight": "",
-                "$$hashKey": "object:4855"
+                "$$hashKey": "object:8000"
               },
               {
                 "value": "SmallHotel",
                 "weight": "",
-                "$$hashKey": "object:4865"
+                "$$hashKey": "object:8010"
               },
               {
                 "value": "LargeHotel",
                 "weight": "",
-                "$$hashKey": "object:4875"
+                "$$hashKey": "object:8020"
               },
               {
                 "value": "Warehouse",
                 "weight": "",
-                "$$hashKey": "object:4885"
+                "$$hashKey": "object:8030"
               },
               {
                 "value": "RetailStandalone",
                 "weight": "",
-                "$$hashKey": "object:4895"
+                "$$hashKey": "object:8040"
               },
               {
                 "value": "RetailStripmall",
                 "weight": "",
-                "$$hashKey": "object:4905"
+                "$$hashKey": "object:8050"
               },
               {
                 "value": "QuickServiceRestaurant",
                 "weight": "",
-                "$$hashKey": "object:4915"
+                "$$hashKey": "object:8060"
               },
               {
                 "value": "FullServiceRestaurant",
                 "weight": "",
-                "$$hashKey": "object:4925"
+                "$$hashKey": "object:8070"
               },
               {
                 "value": "MidriseApartment",
                 "weight": "",
-                "$$hashKey": "object:4935"
+                "$$hashKey": "object:8080"
               },
               {
                 "value": "HighriseApartment",
                 "weight": "",
-                "$$hashKey": "object:4945"
+                "$$hashKey": "object:8090"
               },
               {
                 "value": "Hospital",
                 "weight": "",
-                "$$hashKey": "object:4955"
+                "$$hashKey": "object:8100"
               },
               {
                 "value": "Outpatient",
                 "weight": "",
-                "$$hashKey": "object:4965"
+                "$$hashKey": "object:8110"
               }
             ],
             "maximum": "SmallOffice",
@@ -312,10 +306,10 @@
             "mean": "SmallOffice",
             "deltaX": "SmallOffice",
             "stdDev": "SmallOffice",
-            "default_value": "SecondarySchool",
+            "default_value": "SmallOffice",
             "showWarningIcon": false
           },
-          "$$hashKey": "object:2154"
+          "$$hashKey": "object:22581"
         },
         {
           "name": "template",
@@ -348,10 +342,9 @@
             "mean": "NECB2011",
             "deltaX": "NECB2011",
             "stdDev": "NECB2011",
-            "default_value": "NECB2011",
-            "showWarningIcon": false
+            "default_value": "NECB2011"
           },
-          "$$hashKey": "object:2155"
+          "$$hashKey": "object:22582"
         },
         {
           "name": "epw_file",
@@ -569,332 +562,337 @@
               "CAN_YT_Whitehorse.Intl.AP.719640_CWEC2016.epw"
             ],
             "variableSetting": "Discrete",
-            "distribution": "Discrete",
+            "distribution": "Uniform",
             "discreteVariables": [
               {
                 "value": "CAN_AB_Banff.CS.711220_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:18946"
+                "$$hashKey": "object:22746"
               },
               {
                 "value": "CAN_AB_Calgary.Intl.AP.718770_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:18957"
+                "$$hashKey": "object:22757"
               },
               {
                 "value": "CAN_AB_Edmonton.Intl.AP.711230_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:18967"
+                "$$hashKey": "object:22767"
               },
               {
                 "value": "CAN_AB_Edmonton.Stony.Plain.AP.711270_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82020"
+                "$$hashKey": "object:8130"
               },
               {
                 "value": "CAN_AB_Fort.McMurray.AP.716890_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82030"
+                "$$hashKey": "object:8140"
               },
               {
                 "value": "CAN_AB_Grande.Prairie.AP.719400_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82040"
+                "$$hashKey": "object:8150"
               },
               {
                 "value": "CAN_AB_Lethbridge.AP.712430_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82050"
+                "$$hashKey": "object:8160"
               },
               {
                 "value": "CAN_AB_Medicine.Hat.AP.710260_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82060"
+                "$$hashKey": "object:8180"
               },
               {
                 "value": "CAN_BC_Abbotsford.Intl.AP.711080_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82070"
+                "$$hashKey": "object:8190"
               },
               {
                 "value": "CAN_BC_Comox.Valley.AP.718930_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82080"
+                "$$hashKey": "object:8200"
               },
               {
                 "value": "CAN_BC_Crankbrook-Canadian.Rockies.Intl.AP.718800_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82090"
+                "$$hashKey": "object:8210"
               },
               {
                 "value": "CAN_BC_Fort.St.John-North.Peace.Rgnl.AP.719430_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82100"
+                "$$hashKey": "object:8220"
               },
               {
                 "value": "CAN_BC_Hope.Rgnl.Airpark.711870_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82110"
+                "$$hashKey": "object:8230"
               },
               {
                 "value": "CAN_BC_Kamloops.AP.718870_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82120"
+                "$$hashKey": "object:8240"
               },
               {
                 "value": "CAN_BC_Port.Hardy.AP.711090_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82130"
+                "$$hashKey": "object:8250"
               },
               {
                 "value": "CAN_BC_Prince.George.Intl.AP.718960_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82140"
+                "$$hashKey": "object:8260"
               },
               {
                 "value": "CAN_BC_Smithers.Rgnl.AP.719500_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82150"
+                "$$hashKey": "object:8270"
               },
               {
                 "value": "CAN_BC_Summerland.717680_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82160"
+                "$$hashKey": "object:8280"
               },
               {
                 "value": "CAN_BC_Vancouver.Intl.AP.718920_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82170"
+                "$$hashKey": "object:8290"
               },
               {
                 "value": "CAN_BC_Victoria.Intl.AP.717990_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82180"
+                "$$hashKey": "object:8300"
               },
               {
                 "value": "CAN_MB_Brandon.Muni.AP.711400_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82190"
+                "$$hashKey": "object:8310"
               },
               {
                 "value": "CAN_MB_The.Pas.AP.718670_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82200"
+                "$$hashKey": "object:8320"
               },
               {
                 "value": "CAN_MB_Winnipeg-Richardson.Intl.AP.718520_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82210"
+                "$$hashKey": "object:8340"
               },
               {
                 "value": "CAN_NB_Fredericton.Intl.AP.717000_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82230"
+                "$$hashKey": "object:8350"
               },
               {
                 "value": "CAN_NB_Miramichi.AP.717440_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82240"
+                "$$hashKey": "object:8360"
               },
               {
                 "value": "CAN_NB_Saint.John.AP.716090_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82250"
+                "$$hashKey": "object:8370"
               },
               {
                 "value": "CAN_NL_Gander.Intl.AP-CFB.Gander.718030_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82260"
+                "$$hashKey": "object:8380"
               },
               {
                 "value": "CAN_NL_Goose.Bay.AP-CFB.Goose.Bay.718160_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82270"
+                "$$hashKey": "object:8390"
               },
               {
                 "value": "CAN_NL_St.Johns.Intl.AP.718010_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82280"
+                "$$hashKey": "object:8400"
               },
               {
                 "value": "CAN_NL_Stephenville.Intl.AP.718150_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82290"
+                "$$hashKey": "object:8410"
               },
               {
                 "value": "CAN_NS_CFB.Greenwood.713970_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82300"
+                "$$hashKey": "object:8420"
               },
               {
                 "value": "CAN_NS_CFB.Shearwater.716010_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82310"
+                "$$hashKey": "object:8430"
               },
               {
                 "value": "CAN_NS_Sable.Island.Natl.Park.716000_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82320"
+                "$$hashKey": "object:8440"
               },
               {
                 "value": "CAN_NT_Inuvik-Zubko.AP.719570_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82330"
+                "$$hashKey": "object:8450"
               },
               {
                 "value": "CAN_NT_Yellowknife.AP.719360_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82340"
+                "$$hashKey": "object:8460"
               },
               {
                 "value": "CAN_ON_Armstrong.AP.718410_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82350"
+                "$$hashKey": "object:8470"
               },
               {
                 "value": "CAN_ON_CFB.Trenton.716210_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82360"
+                "$$hashKey": "object:8480"
               },
               {
                 "value": "CAN_ON_Dryden.Rgnl.AP.715270_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82370"
+                "$$hashKey": "object:8490"
               },
               {
                 "value": "CAN_ON_London.Intl.AP.716230_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82380"
+                "$$hashKey": "object:8500"
               },
               {
                 "value": "CAN_ON_Moosonee.AP.713980_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82390"
+                "$$hashKey": "object:8520"
               },
               {
                 "value": "CAN_ON_Mount.Forest.716310_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82400"
+                "$$hashKey": "object:8530"
               },
               {
                 "value": "CAN_ON_North.Bay-Garland.AP.717310_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82410"
+                "$$hashKey": "object:8540"
               },
               {
                 "value": "CAN_ON_Ottawa-Macdonald-Cartier.Intl.AP.716280_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82420"
+                "$$hashKey": "object:8550"
               },
               {
                 "value": "CAN_ON_Sault.Ste.Marie.AP.712600_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82430"
+                "$$hashKey": "object:8560"
               },
               {
                 "value": "CAN_ON_Timmins.Power.AP.717390_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82440"
+                "$$hashKey": "object:8570"
               },
               {
                 "value": "CAN_ON_Toronto.Pearson.Intl.AP.716240_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82450"
+                "$$hashKey": "object:8580"
               },
               {
                 "value": "CAN_ON_Windsor.Intl.AP.715380_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82460"
+                "$$hashKey": "object:8590"
               },
               {
                 "value": "CAN_PE_Charlottetown.AP.717060_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82470"
+                "$$hashKey": "object:8600"
               },
               {
                 "value": "CAN_QC_Kuujjuaq.AP.719060_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82480"
+                "$$hashKey": "object:8610"
               },
               {
                 "value": "CAN_QC_Kuujuarapik.AP.719050_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82490"
+                "$$hashKey": "object:8620"
               },
               {
                 "value": "CAN_QC_Lac.Eon.AP.714210_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82500"
+                "$$hashKey": "object:8630"
               },
               {
                 "value": "CAN_QC_Mont-Joli.AP.717180_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82510"
+                "$$hashKey": "object:8640"
               },
               {
                 "value": "CAN_QC_Montreal-Mirabel.Intl.AP.719050_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82520"
+                "$$hashKey": "object:8650"
               },
               {
                 "value": "CAN_QC_Montreal-St-Hubert.Longueuil.AP.713710_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82530"
+                "$$hashKey": "object:8660"
               },
               {
                 "value": "CAN_QC_Montreal-Trudeau.Intl.AP.716270_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82540"
+                "$$hashKey": "object:8670"
               },
               {
                 "value": "CAN_QC_Quebec-Lesage.Intl.AP.717140_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82550"
+                "$$hashKey": "object:8680"
               },
               {
                 "value": "CAN_QC_Riviere-du-Loup.717150_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82560"
+                "$$hashKey": "object:8690"
               },
               {
                 "value": "CAN_QC_Roberval.AP.717280_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82570"
+                "$$hashKey": "object:8700"
               },
               {
                 "value": "CAN_QC_Saguenay-Bagotville.AP-CFB.Bagotville.717270_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82580"
+                "$$hashKey": "object:8710"
               },
               {
                 "value": "CAN_QC_Schefferville.AP.718280_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82590"
+                "$$hashKey": "object:8720"
               },
               {
                 "value": "CAN_QC_Sept-Iles.AP.718110_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82600"
+                "$$hashKey": "object:8730"
               },
               {
                 "value": "CAN_QC_Val-d-Or.Rgnl.AP.717250_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82610"
+                "$$hashKey": "object:8740"
               },
               {
                 "value": "CAN_SK_Estevan.Rgnl.AP.718620_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82620"
+                "$$hashKey": "object:8750"
+              },
+              {
+                "value": "CAN_SK_North.Battleford.AP.718760_CWEC2016.epw",
+                "weight": "",
+                "$$hashKey": "object:8760"
               },
               {
                 "value": "CAN_SK_Saskatoon.Intl.AP.718660_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82630"
+                "$$hashKey": "object:8770"
               },
               {
                 "value": "CAN_YT_Whitehorse.Intl.AP.719640_CWEC2016.epw",
                 "weight": "",
-                "$$hashKey": "object:82640"
+                "$$hashKey": "object:8780"
               }
             ],
             "maximum": "CAN_AB_Banff.CS.711220_CWEC2016.epw",
@@ -905,7 +903,7 @@
             "default_value": "CAN_AB_Banff.CS.711220_CWEC2016.epw",
             "showWarningIcon": false
           },
-          "$$hashKey": "object:2156"
+          "$$hashKey": "object:22583"
         }
       ],
       "edit": "",
@@ -913,31 +911,74 @@
       "bcl_update": false,
       "location": "my",
       "add": "",
-      "open": true,
+      "open": false,
       "addedToProject": true,
-      "date": "2/28/2018",
+      "date": "6/14/2018",
       "author": "",
       "type": "ModelMeasure",
       "seed": "dummy.osm",
       "workflow_index": 0,
       "options": [],
-      "instanceId": 0.40839505262353537,
+      "instanceId": 0.8044538685233056,
       "skip": false,
-      "$$hashKey": "object:2083",
+      "$$hashKey": "object:22538",
       "showWarningText": false,
+      "unlockStatus": false,
       "outputMeasure": false
     },
     {
-      "measure_dir": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\BTAPViewModel",
+      "measure_dir": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\btap_ideal_air_loads_measure",
+      "name": "btap_ideal_air_loads_measure",
+      "directory": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\btap_ideal_air_loads_measure",
+      "uid": "b01d7a54-7061-4c52-9cde-e89aed93f8a2",
+      "uuid": "{b01d7a54-7061-4c52-9cde-e89aed93f8a2}",
+      "version_id": "ad79d27d-520c-4026-a174-1cfb56a47e6c",
+      "version_uuid": "{ad79d27d-520c-4026-a174-1cfb56a47e6c}",
+      "version_modified": "20180614T144816Z",
+      "xml_checksum": "ED6112BA",
+      "display_name": "BTAPIdealAirLoadsMeasure",
+      "class_name": "BTAPIdealAirLoadsMeasure",
+      "description": "This measure will remove all HVAC and apply ideal air loads and remove outdoor air.",
+      "modeler_description": "This measure will remove all HVAC and apply ideal air loads and remove outdoor air.",
+      "tags": "HVAC.Whole System",
+      "outputs": [],
+      "attributes": [
+        {
+          "name": "Measure Type",
+          "display_name": "Measure Type",
+          "value": "ModelMeasure"
+        }
+      ],
+      "arguments": [],
+      "edit": "",
+      "status": "",
+      "bcl_update": false,
+      "location": "my",
+      "add": "",
+      "open": false,
+      "addedToProject": true,
+      "date": "6/14/2018",
+      "author": "",
+      "type": "ModelMeasure",
+      "seed": "dummy.osm",
+      "workflow_index": 1,
+      "options": [],
+      "instanceId": 0.7194261407516147,
+      "skip": false,
+      "$$hashKey": "object:1919",
+      "outputMeasure": false
+    },
+    {
+      "measure_dir": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\btap_view_model",
       "name": "btap_view_model",
-      "directory": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\BTAPViewModel",
-      "uid": "f4669f10-fda5-489d-8e1c-7ca3c2d40378",
-      "uuid": "{f4669f10-fda5-489d-8e1c-7ca3c2d40378}",
-      "version_id": "b381aaf5-97c4-40a6-9bf7-f1c3d80ddef4",
-      "version_uuid": "{b381aaf5-97c4-40a6-9bf7-f1c3d80ddef4}",
-      "version_modified": "20180228T202816Z",
-      "xml_checksum": "1E1F8B97",
-      "display_name": "ViewModel",
+      "directory": "C:/Users/phylr/btap/measures/btap_view_model",
+      "uid": "a7a14e83-c319-4d66-b143-97630df94dbe",
+      "uuid": "{a7a14e83-c319-4d66-b143-97630df94dbe}",
+      "version_id": "5a912a92-b6b3-4f23-8528-3b980dd43de7",
+      "version_uuid": "{5a912a92-b6b3-4f23-8528-3b980dd43de7}",
+      "version_modified": "20180614T144817Z",
+      "xml_checksum": "17C66553",
+      "display_name": "BTAPViewModel",
       "class_name": "BTAPViewModel",
       "description": "Visualize an OpenStudio model in a web based viewer",
       "modeler_description": "Converts the OpenStudio model to vA3C JSON format and renders using Three.js",
@@ -948,11 +989,6 @@
           "name": "Measure Type",
           "display_name": "Measure Type",
           "value": "ModelMeasure"
-        },
-        {
-          "name": "Uses SketchUp API",
-          "display_name": "Uses SketchUp API",
-          "value": false
         }
       ],
       "arguments": [],
@@ -963,32 +999,700 @@
       "add": "",
       "open": false,
       "addedToProject": true,
-      "date": "2/28/2018",
+      "date": "6/14/2018",
       "author": "",
       "type": "ModelMeasure",
       "seed": "dummy.osm",
-      "workflow_index": 1,
+      "workflow_index": 2,
       "options": [],
-      "instanceId": 0.1557977225236542,
+      "instanceId": 0.8663147757790899,
       "skip": false,
-      "$$hashKey": "object:2084",
-      "showWarningText": false,
+      "$$hashKey": "object:7628"
+    },
+    {
+      "measure_dir": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\btap_report_variables",
+      "name": "btap_report_variables",
+      "directory": "C:/Users/phylr/btap/measures/btap_report_variables",
+      "uid": "b423ae4d-4899-49b4-b447-535a94f2640c",
+      "uuid": "{b423ae4d-4899-49b4-b447-535a94f2640c}",
+      "version_id": "5edace42-fca3-412a-91e7-14aa22811c9c",
+      "version_uuid": "{5edace42-fca3-412a-91e7-14aa22811c9c}",
+      "version_modified": "20180614T144816Z",
+      "xml_checksum": "17C66553",
+      "display_name": "BTAPReportVariables",
+      "class_name": "BTAPReportVariables",
+      "description": "Adds E+ output variables.   Does not create a report.",
+      "modeler_description": "Get output variables from a E+ run and enter them in the variables as an array like '[\"variable_name_1\",\"variable_name_2\"]' and set the reporting frequency accordingly.",
+      "tags": "Reporting.QAQC",
+      "outputs": [],
+      "attributes": [
+        {
+          "name": "Measure Type",
+          "display_name": "Measure Type",
+          "value": "ModelMeasure"
+        }
+      ],
+      "arguments": [
+        {
+          "name": "variable_names",
+          "display_name": "variable_names",
+          "description": "",
+          "type": "String",
+          "required": true,
+          "model_dependent": false,
+          "default_value": "[\n        \"Heating Coil Air Heating Rate\",\n        \"Boiler Heating Rate\",\"Cooling Coil Total Cooling Rate\",\n        \"Water Heater Heating Rate\",\n        \"Facility Total Electric Demand Power\",\n        \"Zone Air System Sensible Heating Rate\",\n        \"Zone Air System Sensible Cooling Rate\",\n        \"Zone Total Internal Total Heating Rate\",\n        \"Zone Total Internal Latent Gain rate\",\n        \"Total Internal Radiant Heating Rate\",\n        \"Total Internal Convective Heating Rate\",\n        \"Zone Air Heat Balance Outdoor Air Transfer Rate\"\n      ]",
+          "display_name_short": "variable_names",
+          "inputs": {
+            "relationship": null,
+            "choiceDisplayNames": [],
+            "variableSetting": "Argument",
+            "distribution": "Uniform",
+            "discreteVariables": [],
+            "maximum": "[\n        \"Heating Coil Air Heating Rate\",\n        \"Boiler Heating Rate\",\"Cooling Coil Total Cooling Rate\",\n        \"Water Heater Heating Rate\",\n        \"Facility Total Electric Demand Power\",\n        \"Zone Air System Sensible Heating Rate\",\n        \"Zone Air System Sensible Cooling Rate\",\n        \"Zone Total Internal Total Heating Rate\",\n        \"Zone Total Internal Latent Gain rate\",\n        \"Total Internal Radiant Heating Rate\",\n        \"Total Internal Convective Heating Rate\",\n        \"Zone Air Heat Balance Outdoor Air Transfer Rate\"\n      ]",
+            "minimum": "[\n        \"Heating Coil Air Heating Rate\",\n        \"Boiler Heating Rate\",\"Cooling Coil Total Cooling Rate\",\n        \"Water Heater Heating Rate\",\n        \"Facility Total Electric Demand Power\",\n        \"Zone Air System Sensible Heating Rate\",\n        \"Zone Air System Sensible Cooling Rate\",\n        \"Zone Total Internal Total Heating Rate\",\n        \"Zone Total Internal Latent Gain rate\",\n        \"Total Internal Radiant Heating Rate\",\n        \"Total Internal Convective Heating Rate\",\n        \"Zone Air Heat Balance Outdoor Air Transfer Rate\"\n      ]",
+            "mean": "[\n        \"Heating Coil Air Heating Rate\",\n        \"Boiler Heating Rate\",\"Cooling Coil Total Cooling Rate\",\n        \"Water Heater Heating Rate\",\n        \"Facility Total Electric Demand Power\",\n        \"Zone Air System Sensible Heating Rate\",\n        \"Zone Air System Sensible Cooling Rate\",\n        \"Zone Total Internal Total Heating Rate\",\n        \"Zone Total Internal Latent Gain rate\",\n        \"Total Internal Radiant Heating Rate\",\n        \"Total Internal Convective Heating Rate\",\n        \"Zone Air Heat Balance Outdoor Air Transfer Rate\"\n      ]",
+            "deltaX": "[\n        \"Heating Coil Air Heating Rate\",\n        \"Boiler Heating Rate\",\"Cooling Coil Total Cooling Rate\",\n        \"Water Heater Heating Rate\",\n        \"Facility Total Electric Demand Power\",\n        \"Zone Air System Sensible Heating Rate\",\n        \"Zone Air System Sensible Cooling Rate\",\n        \"Zone Total Internal Total Heating Rate\",\n        \"Zone Total Internal Latent Gain rate\",\n        \"Total Internal Radiant Heating Rate\",\n        \"Total Internal Convective Heating Rate\",\n        \"Zone Air Heat Balance Outdoor Air Transfer Rate\"\n      ]",
+            "stdDev": "[\n        \"Heating Coil Air Heating Rate\",\n        \"Boiler Heating Rate\",\"Cooling Coil Total Cooling Rate\",\n        \"Water Heater Heating Rate\",\n        \"Facility Total Electric Demand Power\",\n        \"Zone Air System Sensible Heating Rate\",\n        \"Zone Air System Sensible Cooling Rate\",\n        \"Zone Total Internal Total Heating Rate\",\n        \"Zone Total Internal Latent Gain rate\",\n        \"Total Internal Radiant Heating Rate\",\n        \"Total Internal Convective Heating Rate\",\n        \"Zone Air Heat Balance Outdoor Air Transfer Rate\"\n      ]",
+            "default_value": "[\n        \"Heating Coil Air Heating Rate\",\n        \"Boiler Heating Rate\",\"Cooling Coil Total Cooling Rate\",\n        \"Water Heater Heating Rate\",\n        \"Facility Total Electric Demand Power\",\n        \"Zone Air System Sensible Heating Rate\",\n        \"Zone Air System Sensible Cooling Rate\",\n        \"Zone Total Internal Total Heating Rate\",\n        \"Zone Total Internal Latent Gain rate\",\n        \"Total Internal Radiant Heating Rate\",\n        \"Total Internal Convective Heating Rate\",\n        \"Zone Air Heat Balance Outdoor Air Transfer Rate\"\n      ]"
+          },
+          "$$hashKey": "object:7717"
+        },
+        {
+          "name": "reporting_frequency",
+          "display_name": "Reporting Frequency.",
+          "description": "",
+          "type": "Choice",
+          "required": true,
+          "model_dependent": false,
+          "default_value": "timestep",
+          "choice_values": [
+            "detailed",
+            "timestep",
+            "hourly"
+          ],
+          "choice_display_names": [
+            "detailed",
+            "timestep",
+            "hourly"
+          ],
+          "display_name_short": "reporting_frequency",
+          "inputs": {
+            "relationship": null,
+            "choiceDisplayNames": [
+              "detailed",
+              "timestep",
+              "hourly"
+            ],
+            "variableSetting": "Argument",
+            "distribution": "Uniform",
+            "discreteVariables": [],
+            "maximum": "timestep",
+            "minimum": "timestep",
+            "mean": "timestep",
+            "deltaX": "timestep",
+            "stdDev": "timestep",
+            "default_value": "timestep"
+          },
+          "$$hashKey": "object:7718"
+        }
+      ],
+      "edit": "",
+      "status": "",
+      "bcl_update": false,
+      "location": "my",
+      "add": "",
+      "open": false,
+      "addedToProject": true,
+      "date": "6/14/2018",
+      "author": "",
+      "type": "ModelMeasure",
+      "seed": "dummy.osm",
+      "workflow_index": 3,
+      "options": [],
+      "instanceId": 0.7440486663740775,
+      "skip": true,
+      "$$hashKey": "object:7629"
+    },
+    {
+      "measure_dir": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\btap_ideal_air_loads_options_eplus",
+      "name": "ideal_loads_options",
+      "directory": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\btap_ideal_air_loads_options_eplus",
+      "uid": "f4a1be3f-0d82-4486-b6bb-1a123e034e8f",
+      "uuid": "{f4a1be3f-0d82-4486-b6bb-1a123e034e8f}",
+      "version_id": "9c60de23-d09c-4810-9846-46f20d196b5c",
+      "version_uuid": "{9c60de23-d09c-4810-9846-46f20d196b5c}",
+      "version_modified": "20180613T204350Z",
+      "xml_checksum": "E97C8C86",
+      "display_name": "BTAPIdealAirLoadsOptionsEplus",
+      "class_name": "IdealLoadsOptions",
+      "description": "This measure allows the user to edit ideal air loads fields including availability schedules, maximum and minimum supply air temperatures, humidity ratios and flow rates, humidity control, outdoor air requirements, demand controlled ventilation, economizer operation, and heat recovery.",
+      "modeler_description": "This measure assigns fields to all IdealLoadsAirSystem objects.",
+      "tags": "HVAC.Whole System",
+      "outputs": [],
+      "attributes": [
+        {
+          "name": "Measure Type",
+          "display_name": "Measure Type",
+          "value": "EnergyPlusMeasure"
+        }
+      ],
+      "arguments": [
+        {
+          "name": "availability_schedule",
+          "display_name": "System Availability Schedule:",
+          "description": "",
+          "type": "Choice",
+          "required": true,
+          "model_dependent": false,
+          "choice_values": [
+            "Always On Discrete 1",
+            "Always On Discrete",
+            "Building HVAC Operation",
+            "Default HVAC Operation 24/7-365"
+          ],
+          "choice_display_names": [
+            "Always On Discrete 1",
+            "Always On Discrete",
+            "Building HVAC Operation",
+            "Default HVAC Operation 24/7-365"
+          ],
+          "display_name_short": "availability_schedule",
+          "inputs": {
+            "relationship": null,
+            "choiceDisplayNames": [
+              "Always On Discrete 1",
+              "Always On Discrete",
+              "Building HVAC Operation",
+              "Default HVAC Operation 24/7-365"
+            ],
+            "variableSetting": "Argument",
+            "distribution": "Uniform",
+            "discreteVariables": [],
+            "maximum": "Always On Discrete 1",
+            "minimum": "Always On Discrete 1",
+            "mean": "Always On Discrete 1",
+            "deltaX": "Always On Discrete 1",
+            "stdDev": "Always On Discrete 1",
+            "default_value": "Always On Discrete"
+          },
+          "$$hashKey": "object:2013"
+        },
+        {
+          "name": "heating_availability_schedule",
+          "display_name": "Heating Availability Schedule:",
+          "description": "",
+          "type": "Choice",
+          "required": true,
+          "model_dependent": false,
+          "choice_values": [
+            "Always On Discrete 1",
+            "Always On Discrete",
+            "Building HVAC Operation",
+            "Default HVAC Operation 24/7-365"
+          ],
+          "choice_display_names": [
+            "Always On Discrete 1",
+            "Always On Discrete",
+            "Building HVAC Operation",
+            "Default HVAC Operation 24/7-365"
+          ],
+          "display_name_short": "heating_availability_schedule",
+          "inputs": {
+            "relationship": null,
+            "choiceDisplayNames": [
+              "Always On Discrete 1",
+              "Always On Discrete",
+              "Building HVAC Operation",
+              "Default HVAC Operation 24/7-365"
+            ],
+            "variableSetting": "Argument",
+            "distribution": "Uniform",
+            "discreteVariables": [],
+            "maximum": "Always On Discrete 1",
+            "minimum": "Always On Discrete 1",
+            "mean": "Always On Discrete 1",
+            "deltaX": "Always On Discrete 1",
+            "stdDev": "Always On Discrete 1",
+            "default_value": "Always On Discrete"
+          },
+          "$$hashKey": "object:2014"
+        },
+        {
+          "name": "cooling_availability_schedule",
+          "display_name": "Cooling Availability Schedule:",
+          "description": "",
+          "type": "Choice",
+          "required": true,
+          "model_dependent": false,
+          "choice_values": [
+            "Always On Discrete 1",
+            "Always On Discrete",
+            "Building HVAC Operation",
+            "Default HVAC Operation 24/7-365"
+          ],
+          "choice_display_names": [
+            "Always On Discrete 1",
+            "Always On Discrete",
+            "Building HVAC Operation",
+            "Default HVAC Operation 24/7-365"
+          ],
+          "display_name_short": "cooling_availability_schedule",
+          "inputs": {
+            "relationship": null,
+            "choiceDisplayNames": [
+              "Always On Discrete 1",
+              "Always On Discrete",
+              "Building HVAC Operation",
+              "Default HVAC Operation 24/7-365"
+            ],
+            "variableSetting": "Argument",
+            "distribution": "Uniform",
+            "discreteVariables": [],
+            "maximum": "Always On Discrete 1",
+            "minimum": "Always On Discrete 1",
+            "mean": "Always On Discrete 1",
+            "deltaX": "Always On Discrete 1",
+            "stdDev": "Always On Discrete 1",
+            "default_value": "Always On Discrete"
+          },
+          "$$hashKey": "object:2015"
+        },
+        {
+          "name": "heating_limit_type",
+          "display_name": "Heating Limit Type:",
+          "description": "",
+          "type": "Choice",
+          "required": true,
+          "model_dependent": false,
+          "default_value": "NoLimit",
+          "choice_values": [
+            "NoLimit",
+            "LimitFlowRate",
+            "LimitCapacity",
+            "LimitFlowRateAndCapacity"
+          ],
+          "choice_display_names": [
+            "NoLimit",
+            "LimitFlowRate",
+            "LimitCapacity",
+            "LimitFlowRateAndCapacity"
+          ],
+          "display_name_short": "heating_limit_type",
+          "inputs": {
+            "relationship": null,
+            "choiceDisplayNames": [
+              "NoLimit",
+              "LimitFlowRate",
+              "LimitCapacity",
+              "LimitFlowRateAndCapacity"
+            ],
+            "variableSetting": "Argument",
+            "distribution": "Uniform",
+            "discreteVariables": [],
+            "maximum": "NoLimit",
+            "minimum": "NoLimit",
+            "mean": "NoLimit",
+            "deltaX": "NoLimit",
+            "stdDev": "NoLimit",
+            "default_value": "NoLimit"
+          },
+          "$$hashKey": "object:2016"
+        },
+        {
+          "name": "cooling_limit_type",
+          "display_name": "Cooling Limit Type:",
+          "description": "",
+          "type": "Choice",
+          "required": true,
+          "model_dependent": false,
+          "default_value": "NoLimit",
+          "choice_values": [
+            "NoLimit",
+            "LimitFlowRate",
+            "LimitCapacity",
+            "LimitFlowRateAndCapacity"
+          ],
+          "choice_display_names": [
+            "NoLimit",
+            "LimitFlowRate",
+            "LimitCapacity",
+            "LimitFlowRateAndCapacity"
+          ],
+          "display_name_short": "cooling_limit_type",
+          "inputs": {
+            "relationship": null,
+            "choiceDisplayNames": [
+              "NoLimit",
+              "LimitFlowRate",
+              "LimitCapacity",
+              "LimitFlowRateAndCapacity"
+            ],
+            "variableSetting": "Argument",
+            "distribution": "Uniform",
+            "discreteVariables": [],
+            "maximum": "NoLimit",
+            "minimum": "NoLimit",
+            "mean": "NoLimit",
+            "deltaX": "NoLimit",
+            "stdDev": "NoLimit",
+            "default_value": "NoLimit"
+          },
+          "$$hashKey": "object:2017"
+        },
+        {
+          "name": "dehumid_type",
+          "display_name": "Dehumidification Control:",
+          "description": "",
+          "type": "Choice",
+          "required": true,
+          "model_dependent": false,
+          "default_value": "ConstantSensibleHeatRatio",
+          "choice_values": [
+            "None",
+            "ConstantSensibleHeatRatio",
+            "Humidistat",
+            "ConstantSupplyHumidityRatio"
+          ],
+          "choice_display_names": [
+            "None",
+            "ConstantSensibleHeatRatio",
+            "Humidistat",
+            "ConstantSupplyHumidityRatio"
+          ],
+          "display_name_short": "dehumid_type",
+          "inputs": {
+            "relationship": null,
+            "choiceDisplayNames": [
+              "None",
+              "ConstantSensibleHeatRatio",
+              "Humidistat",
+              "ConstantSupplyHumidityRatio"
+            ],
+            "variableSetting": "Argument",
+            "distribution": "Uniform",
+            "discreteVariables": [],
+            "maximum": "ConstantSensibleHeatRatio",
+            "minimum": "ConstantSensibleHeatRatio",
+            "mean": "ConstantSensibleHeatRatio",
+            "deltaX": "ConstantSensibleHeatRatio",
+            "stdDev": "ConstantSensibleHeatRatio",
+            "default_value": "ConstantSensibleHeatRatio"
+          },
+          "$$hashKey": "object:2018"
+        },
+        {
+          "name": "cooling_sensible_heat_ratio",
+          "display_name": "Cooling Sensible Heat Ratio",
+          "description": "",
+          "type": "Double",
+          "required": true,
+          "model_dependent": false,
+          "default_value": 0.7,
+          "display_name_short": "cooling_sensible_heat_ratio",
+          "inputs": {
+            "relationship": null,
+            "choiceDisplayNames": [],
+            "variableSetting": "Argument",
+            "distribution": "Uniform",
+            "discreteVariables": [],
+            "maximum": 0.7,
+            "minimum": 0.7,
+            "mean": 0.7,
+            "deltaX": 0.7,
+            "stdDev": 0.7,
+            "default_value": 0.7
+          },
+          "$$hashKey": "object:2019"
+        },
+        {
+          "name": "humid_type",
+          "display_name": "Humidification Control:",
+          "description": "",
+          "type": "Choice",
+          "required": true,
+          "model_dependent": false,
+          "default_value": "None",
+          "choice_values": [
+            "None",
+            "Humidistat",
+            "ConstantSupplyHumidityRatio"
+          ],
+          "choice_display_names": [
+            "None",
+            "Humidistat",
+            "ConstantSupplyHumidityRatio"
+          ],
+          "display_name_short": "humid_type",
+          "inputs": {
+            "relationship": null,
+            "choiceDisplayNames": [
+              "None",
+              "Humidistat",
+              "ConstantSupplyHumidityRatio"
+            ],
+            "variableSetting": "Argument",
+            "distribution": "Uniform",
+            "discreteVariables": [],
+            "maximum": "None",
+            "minimum": "None",
+            "mean": "None",
+            "deltaX": "None",
+            "stdDev": "None",
+            "default_value": "None"
+          },
+          "$$hashKey": "object:2020"
+        },
+        {
+          "name": "oa_spec",
+          "display_name": "Outdoor Air Specification:",
+          "description": "",
+          "type": "Choice",
+          "required": true,
+          "model_dependent": false,
+          "default_value": "Use Individual Zone Design Outdoor Air",
+          "choice_values": [
+            "None",
+            "Use Individual Zone Design Outdoor Air"
+          ],
+          "choice_display_names": [
+            "None",
+            "Use Individual Zone Design Outdoor Air"
+          ],
+          "display_name_short": "oa_spec",
+          "inputs": {
+            "relationship": null,
+            "choiceDisplayNames": [
+              "None",
+              "Use Individual Zone Design Outdoor Air"
+            ],
+            "variableSetting": "Argument",
+            "distribution": "Uniform",
+            "discreteVariables": [],
+            "maximum": "Use Individual Zone Design Outdoor Air",
+            "minimum": "Use Individual Zone Design Outdoor Air",
+            "mean": "Use Individual Zone Design Outdoor Air",
+            "deltaX": "Use Individual Zone Design Outdoor Air",
+            "stdDev": "Use Individual Zone Design Outdoor Air",
+            "default_value": "Use Individual Zone Design Outdoor Air"
+          },
+          "$$hashKey": "object:2021"
+        },
+        {
+          "name": "dcv_type",
+          "display_name": "Demand Controlled Ventilation:",
+          "description": "",
+          "type": "Choice",
+          "required": true,
+          "model_dependent": false,
+          "default_value": "None",
+          "choice_values": [
+            "None",
+            "OccupancySchedule"
+          ],
+          "choice_display_names": [
+            "None",
+            "OccupancySchedule"
+          ],
+          "display_name_short": "dcv_type",
+          "inputs": {
+            "relationship": null,
+            "choiceDisplayNames": [
+              "None",
+              "OccupancySchedule"
+            ],
+            "variableSetting": "Argument",
+            "distribution": "Uniform",
+            "discreteVariables": [],
+            "maximum": "None",
+            "minimum": "None",
+            "mean": "None",
+            "deltaX": "None",
+            "stdDev": "None",
+            "default_value": "None"
+          },
+          "$$hashKey": "object:2022"
+        },
+        {
+          "name": "economizer_type",
+          "display_name": "Economizer Type (Requires a Flow Rate Cooling Limit Type and Outdoor Air):",
+          "description": "",
+          "type": "Choice",
+          "required": true,
+          "model_dependent": false,
+          "default_value": "NoEconomizer",
+          "choice_values": [
+            "NoEconomizer",
+            "DifferentialDryBulb",
+            "DifferentialEnthalpy"
+          ],
+          "choice_display_names": [
+            "NoEconomizer",
+            "DifferentialDryBulb",
+            "DifferentialEnthalpy"
+          ],
+          "display_name_short": "economizer_type",
+          "inputs": {
+            "relationship": null,
+            "choiceDisplayNames": [
+              "NoEconomizer",
+              "DifferentialDryBulb",
+              "DifferentialEnthalpy"
+            ],
+            "variableSetting": "Argument",
+            "distribution": "Uniform",
+            "discreteVariables": [],
+            "maximum": "NoEconomizer",
+            "minimum": "NoEconomizer",
+            "mean": "NoEconomizer",
+            "deltaX": "NoEconomizer",
+            "stdDev": "NoEconomizer",
+            "default_value": "NoEconomizer"
+          },
+          "$$hashKey": "object:2023"
+        },
+        {
+          "name": "heat_recovery_type",
+          "display_name": "Heat Recovery Type (Requires Outdoor Air):",
+          "description": "",
+          "type": "Choice",
+          "required": true,
+          "model_dependent": false,
+          "default_value": "None",
+          "choice_values": [
+            "None",
+            "Sensible",
+            "Enthalpy"
+          ],
+          "choice_display_names": [
+            "None",
+            "Sensible",
+            "Enthalpy"
+          ],
+          "display_name_short": "heat_recovery_type",
+          "inputs": {
+            "relationship": null,
+            "choiceDisplayNames": [
+              "None",
+              "Sensible",
+              "Enthalpy"
+            ],
+            "variableSetting": "Argument",
+            "distribution": "Uniform",
+            "discreteVariables": [],
+            "maximum": "None",
+            "minimum": "None",
+            "mean": "None",
+            "deltaX": "None",
+            "stdDev": "None",
+            "default_value": "None"
+          },
+          "$$hashKey": "object:2024"
+        },
+        {
+          "name": "sensible_effectiveness",
+          "display_name": "Heat Recovery Sensible Effectiveness",
+          "description": "",
+          "type": "Double",
+          "required": true,
+          "model_dependent": false,
+          "default_value": 0.7,
+          "display_name_short": "sensible_effectiveness",
+          "inputs": {
+            "relationship": null,
+            "choiceDisplayNames": [],
+            "variableSetting": "Argument",
+            "distribution": "Uniform",
+            "discreteVariables": [],
+            "maximum": 0.7,
+            "minimum": 0.7,
+            "mean": 0.7,
+            "deltaX": 0.7,
+            "stdDev": 0.7,
+            "default_value": 0.7
+          },
+          "$$hashKey": "object:2025"
+        },
+        {
+          "name": "latent_effectiveness",
+          "display_name": "Heat Recovery Latent Effectiveness",
+          "description": "",
+          "type": "Double",
+          "required": true,
+          "model_dependent": false,
+          "default_value": 0.65,
+          "display_name_short": "latent_effectiveness",
+          "inputs": {
+            "relationship": null,
+            "choiceDisplayNames": [],
+            "variableSetting": "Argument",
+            "distribution": "Uniform",
+            "discreteVariables": [],
+            "maximum": 0.65,
+            "minimum": 0.65,
+            "mean": 0.65,
+            "deltaX": 0.65,
+            "stdDev": 0.65,
+            "default_value": 0.65
+          },
+          "$$hashKey": "object:2026"
+        },
+        {
+          "name": "add_meters",
+          "display_name": "Add Meter:Custom and Output:Meter objects to sum ZoneHVAC:IdealLoadsAirSystem variables?",
+          "description": "",
+          "type": "Boolean",
+          "required": true,
+          "model_dependent": false,
+          "default_value": true,
+          "display_name_short": "add_meters",
+          "inputs": {
+            "relationship": null,
+            "choiceDisplayNames": [],
+            "variableSetting": "Argument",
+            "distribution": "Uniform",
+            "discreteVariables": [],
+            "maximum": true,
+            "minimum": true,
+            "mean": true,
+            "deltaX": true,
+            "stdDev": true,
+            "default_value": true
+          },
+          "$$hashKey": "object:2027"
+        }
+      ],
+      "edit": "",
+      "status": "",
+      "bcl_update": false,
+      "location": "my",
+      "add": "",
+      "open": false,
+      "addedToProject": true,
+      "date": "6/13/2018",
+      "author": "",
+      "type": "EnergyPlusMeasure",
+      "seed": "dummy.osm",
+      "workflow_index": 4,
+      "options": [],
+      "instanceId": 0.48864142098094865,
+      "skip": true,
+      "$$hashKey": "object:1965",
       "outputMeasure": false
     },
     {
-      "measure_dir": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\BTAPUtilityTariffs",
+      "measure_dir": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\btap_utility_tariffs",
       "name": "btap_utility_tariffs_model_setup",
-      "directory": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\BTAPUtilityTariffs",
-      "uid": "7353d86e-d166-4f32-a572-27ce8e65ebb5",
-      "uuid": "{7353d86e-d166-4f32-a572-27ce8e65ebb5}",
-      "version_id": "caa5e3dc-680d-48aa-9a51-d296566a480f",
-      "version_uuid": "{caa5e3dc-680d-48aa-9a51-d296566a480f}",
-      "version_modified": "20180228T202816Z",
-      "xml_checksum": "4A4E44A5",
-      "display_name": "BTAP Utility Tariffs Model Setup",
+      "directory": "C:/Users/phylr/btap/measures/btap_utility_tariffs",
+      "uid": "34c820cf-b55d-4bdf-b654-48e5bd9beef8",
+      "uuid": "{34c820cf-b55d-4bdf-b654-48e5bd9beef8}",
+      "version_id": "fc77fef2-3297-4503-be12-c090e8595a61",
+      "version_uuid": "{fc77fef2-3297-4503-be12-c090e8595a61}",
+      "version_modified": "20180614T163059Z",
+      "xml_checksum": "D1E2AA62",
+      "display_name": "BTAPUtilityTariffsModelSetup",
       "class_name": "BTAPUtilityTariffsModelSetup",
-      "description": "Add the selected utility rate, as well as set the time step and lifecycle costing parameters.",
-      "modeler_description": "Adds the .idf text for the selected tariffs and sets the time step to 15 minutes so that the demand window and the time step align.",
+      "description": "BTAPUtilityTariffs",
+      "modeler_description": "BTAPUtilityTariffs",
       "tags": "Economics.Life Cycle Cost Analysis",
       "outputs": [],
       "attributes": [
@@ -996,11 +1700,6 @@
           "name": "Measure Type",
           "display_name": "Measure Type",
           "value": "EnergyPlusMeasure"
-        },
-        {
-          "name": "Uses SketchUp API",
-          "display_name": "Uses SketchUp API",
-          "value": false
         }
       ],
       "arguments": [],
@@ -1011,28 +1710,26 @@
       "add": "",
       "open": false,
       "addedToProject": true,
-      "date": "2/28/2018",
+      "date": "6/14/2018",
       "author": "",
       "type": "EnergyPlusMeasure",
       "seed": "dummy.osm",
-      "workflow_index": 2,
+      "workflow_index": 5,
       "options": [],
-      "instanceId": 0.4377827128699503,
+      "instanceId": 0.4314417023087054,
       "skip": false,
-      "$$hashKey": "object:2929",
-      "showWarningText": false,
-      "outputMeasure": false
+      "$$hashKey": "object:7786"
     },
     {
-      "measure_dir": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\BTAPResults",
+      "measure_dir": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\btap_results",
       "name": "btap_results",
-      "directory": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\BTAPResults",
-      "uid": "98aec261-d860-4ffa-9537-fa32cd356857",
-      "uuid": "{98aec261-d860-4ffa-9537-fa32cd356857}",
-      "version_id": "b0b0c8b6-62a4-49e7-b2ba-a9f717ca2d38",
-      "version_uuid": "{b0b0c8b6-62a4-49e7-b2ba-a9f717ca2d38}",
-      "version_modified": "20180228T202816Z",
-      "xml_checksum": "C3418C13",
+      "directory": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\btap_results",
+      "uid": "bf37e1c6-de70-457b-a3ac-21aa57b7bc58",
+      "uuid": "{bf37e1c6-de70-457b-a3ac-21aa57b7bc58}",
+      "version_id": "ca362d8f-1c12-4d82-a841-cb1db2600ee4",
+      "version_uuid": "{ca362d8f-1c12-4d82-a841-cb1db2600ee4}",
+      "version_modified": "20180615T184841Z",
+      "xml_checksum": "15BF4E57",
       "display_name": "BTAP Results",
       "class_name": "BTAPResults",
       "description": "This measure creates BTAP result values used for NRCan analyses.",
@@ -1044,11 +1741,6 @@
           "name": "Measure Type",
           "display_name": "Measure Type",
           "value": "ReportingMeasure"
-        },
-        {
-          "name": "Intended Software Tool",
-          "display_name": "Intended Software Tool",
-          "value": "Analysis Spreadsheet"
         }
       ],
       "arguments": [
@@ -1072,10 +1764,44 @@
             "mean": "false",
             "deltaX": "false",
             "stdDev": "false",
-            "default_value": "false",
-            "showWarningIcon": false
+            "default_value": "false"
           },
-          "$$hashKey": "object:3788"
+          "$$hashKey": "object:3474"
+        },
+        {
+          "name": "template_type",
+          "display_name": "NECB template for QAQC",
+          "description": "",
+          "type": "Choice",
+          "required": true,
+          "model_dependent": false,
+          "default_value": "NECB2011",
+          "choice_values": [
+            "NECB2011",
+            "NECB2015"
+          ],
+          "choice_display_names": [
+            "NECB2011",
+            "NECB2015"
+          ],
+          "display_name_short": "template_type",
+          "inputs": {
+            "relationship": null,
+            "choiceDisplayNames": [
+              "NECB2011",
+              "NECB2015"
+            ],
+            "variableSetting": "Argument",
+            "distribution": "Uniform",
+            "discreteVariables": [],
+            "maximum": "NECB2011",
+            "minimum": "NECB2011",
+            "mean": "NECB2011",
+            "deltaX": "NECB2011",
+            "stdDev": "NECB2011",
+            "default_value": "NECB2011"
+          },
+          "$$hashKey": "object:3475"
         }
       ],
       "edit": "",
@@ -1085,33 +1811,32 @@
       "add": "",
       "open": false,
       "addedToProject": true,
-      "date": "2/28/2018",
+      "date": "6/15/2018",
       "author": "",
       "type": "ReportingMeasure",
       "seed": "dummy.osm",
-      "workflow_index": 3,
+      "workflow_index": 6,
       "options": [],
-      "instanceId": 0.49568667014373347,
+      "instanceId": 0.1930693080128736,
       "skip": false,
-      "$$hashKey": "object:3717",
-      "showWarningText": false,
+      "$$hashKey": "object:2501",
       "outputMeasure": false
     },
     {
-      "measure_dir": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\BTAPOpenstudioResults",
+      "measure_dir": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\btap_open_studio_results",
       "name": "openstudio_results",
-      "directory": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\BTAPOpenstudioResults",
-      "uid": "a25386cd-60e4-46bc-8b11-c755f379d916",
-      "uuid": "{a25386cd-60e4-46bc-8b11-c755f379d916}",
-      "version_id": "774bdba5-d2ec-4bed-80e2-b50327efeeac",
-      "version_uuid": "{774bdba5-d2ec-4bed-80e2-b50327efeeac}",
-      "version_modified": "20180228T202816Z",
-      "xml_checksum": "557BF06F",
-      "display_name": "OpenStudio Results",
+      "directory": "C:\\btap\\pat_projects\\necb_national_prototype_scan\\measures\\btap_open_studio_results",
+      "uid": "a7437013-6d3a-414a-8a4e-8bcba833188d",
+      "uuid": "{a7437013-6d3a-414a-8a4e-8bcba833188d}",
+      "version_id": "ee4c7d7c-d8e7-4ecc-a5ca-de54a09cf164",
+      "version_uuid": "{ee4c7d7c-d8e7-4ecc-a5ca-de54a09cf164}",
+      "version_modified": "20180614T144817Z",
+      "xml_checksum": "AE2941B3",
+      "display_name": "BTAPOpenStudioResults",
       "class_name": "OpenStudioResults",
       "description": "This measure creates high level tables and charts pulling both from model inputs and EnergyPlus results. It has building level information as well as detail on space types, thermal zones, HVAC systems, envelope characteristics, and economics. Click the heading above a chart to view a table of the chart data.",
       "modeler_description": "For the most part consumption data comes from the tabular EnergyPlus results, however there are a few requests added for time series results. Space type and loop details come from the OpenStudio model. The code for this is modular, making it easy to use as a template for your own custom reports. The structure of the report uses bootstrap, and the graphs use dimple js.",
-      "tags": "Reporting.QAQC",
+      "tags": "Whole Building.Space Types",
       "outputs": [
         {
           "name": "electricity_ip",
@@ -1220,34 +1945,9 @@
       ],
       "attributes": [
         {
-          "name": "Uses SketchUp API",
-          "display_name": "Uses SketchUp API",
-          "value": false
-        },
-        {
           "name": "Measure Type",
           "display_name": "Measure Type",
           "value": "ReportingMeasure"
-        },
-        {
-          "name": "Intended Software Tool",
-          "display_name": "Intended Software Tool",
-          "value": "OpenStudio Application"
-        },
-        {
-          "name": "Intended Software Tool",
-          "display_name": "Intended Software Tool",
-          "value": "Parametric Analysis Tool"
-        },
-        {
-          "name": "Intended Software Tool",
-          "display_name": "Intended Software Tool",
-          "value": "Analysis Spreadsheet"
-        },
-        {
-          "name": "Intended Use Case",
-          "display_name": "Intended Use Case",
-          "value": "Automatic Report Generation"
         }
       ],
       "arguments": [
@@ -1271,10 +1971,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3842"
+          "$$hashKey": "object:2571"
         },
         {
           "name": "annual_overview_section",
@@ -1296,10 +1995,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3843"
+          "$$hashKey": "object:2572"
         },
         {
           "name": "monthly_overview_section",
@@ -1321,10 +2019,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3844"
+          "$$hashKey": "object:2573"
         },
         {
           "name": "utility_bills_rates_section",
@@ -1346,10 +2043,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3845"
+          "$$hashKey": "object:2574"
         },
         {
           "name": "envelope_section_section",
@@ -1371,10 +2067,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3846"
+          "$$hashKey": "object:2575"
         },
         {
           "name": "space_type_breakdown_section",
@@ -1396,10 +2091,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3847"
+          "$$hashKey": "object:2576"
         },
         {
           "name": "space_type_details_section",
@@ -1421,10 +2115,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3848"
+          "$$hashKey": "object:2577"
         },
         {
           "name": "interior_lighting_section",
@@ -1446,10 +2139,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3849"
+          "$$hashKey": "object:2578"
         },
         {
           "name": "plug_loads_section",
@@ -1471,10 +2163,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3850"
+          "$$hashKey": "object:2579"
         },
         {
           "name": "exterior_light_section",
@@ -1496,10 +2187,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3851"
+          "$$hashKey": "object:2580"
         },
         {
           "name": "water_use_section",
@@ -1521,10 +2211,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3852"
+          "$$hashKey": "object:2581"
         },
         {
           "name": "hvac_load_profile",
@@ -1546,10 +2235,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3853"
+          "$$hashKey": "object:2582"
         },
         {
           "name": "zone_condition_section",
@@ -1571,10 +2259,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3854"
+          "$$hashKey": "object:2583"
         },
         {
           "name": "zone_summary_section",
@@ -1596,10 +2283,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3855"
+          "$$hashKey": "object:2584"
         },
         {
           "name": "zone_equipment_detail_section",
@@ -1621,10 +2307,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3856"
+          "$$hashKey": "object:2585"
         },
         {
           "name": "air_loops_detail_section",
@@ -1646,10 +2331,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3857"
+          "$$hashKey": "object:2586"
         },
         {
           "name": "plant_loops_detail_section",
@@ -1671,10 +2355,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3858"
+          "$$hashKey": "object:2587"
         },
         {
           "name": "outdoor_air_section",
@@ -1696,10 +2379,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3859"
+          "$$hashKey": "object:2588"
         },
         {
           "name": "cost_summary_section",
@@ -1721,10 +2403,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3860"
+          "$$hashKey": "object:2589"
         },
         {
           "name": "source_energy_section",
@@ -1746,10 +2427,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3861"
+          "$$hashKey": "object:2590"
         },
         {
           "name": "schedules_overview_section",
@@ -1771,10 +2451,9 @@
             "mean": true,
             "deltaX": true,
             "stdDev": true,
-            "default_value": true,
-            "showWarningIcon": false
+            "default_value": true
           },
-          "$$hashKey": "object:3862"
+          "$$hashKey": "object:2591"
         }
       ],
       "edit": "",
@@ -1782,21 +2461,18 @@
       "bcl_update": false,
       "location": "my",
       "add": "",
-      "open": true,
+      "open": false,
       "addedToProject": true,
-      "date": "2/28/2018",
+      "date": "6/14/2018",
       "author": "",
       "type": "ReportingMeasure",
       "seed": "dummy.osm",
-      "workflow_index": 4,
+      "workflow_index": 7,
       "options": [],
-      "instanceId": 0.2627398726320114,
+      "instanceId": 0.39173416530235294,
       "skip": false,
-      "$$hashKey": "object:3718",
-      "showWarningText": false,
-      "outputMeasure": true,
-      "userDefinedOutputs": [],
-      "analysisOutputs": []
+      "$$hashKey": "object:2500",
+      "outputMeasure": false
     }
   ],
   "filesToInclude": [],
