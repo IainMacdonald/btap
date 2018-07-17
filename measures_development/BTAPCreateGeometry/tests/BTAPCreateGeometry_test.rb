@@ -92,7 +92,7 @@ class BTAPCreateGeometry_Test < Minitest::Test
     ]
 
     @good_input_arguments = {
-        "building_name" => "courtyard_A",
+        "building_name" => "courtyard",
         "building_shape" => "Courtyard",
         "total_floor_area" => 5000,
         "aspect_ratio" => 2.0,
@@ -101,87 +101,63 @@ class BTAPCreateGeometry_Test < Minitest::Test
         "floor_to_floor_height" => 3.2,
         "plenum_height" => 1.2
     }
-	
 
   end
 
-  def test_courtyard()
-    ####### Test Courtyard Model Creation ######
+  def test_sample()
+    ####### Test Model Creation ######
 	# Create an empty model. This measure will overwrite whatever is supplied here.
     model = OpenStudio::Model::Model.new
 	
     # Create an instance of the measure with good values
-	#  Courtyard A
     runner = run_measure(@good_input_arguments, model)
     assert(runner.result.value.valueName == 'Success')
-	#puts show_output(runner.result)
 	
-	# Check model is same as previously created version
-    good_model = OpenStudio::Model::Model.new
-	good_model = BTAP::FileIO::load_osm("courtyard_A.osm")
+	puts "*********"
+    puts show_output(runner.result)
 	
-	diffs = BTAP::FileIO::compare_osm_files(good_model, model)
-	puts diffs unless diffs.size == 0
-    assert(diffs.size == 0, "Creation of courtyard_A model")
-	
-    # Create an instance of the measure with good values
-	#  Courtyard B
+    # While debugging and testing, it is sometimes nice to make a copy of the model as it was.
+    before_measure_model = copy_model(model)
+
+    # You can save your file anytime you want here I am saving to the
+    BTAP::FileIO::save_osm(model, File.join(File.dirname(__FILE__), "output", "saved_file.osm"))
+
+    #puts BTAP::FileIO.compare_osm_files(before_measure_model, model)
+
     model = OpenStudio::Model::Model.new
-	input_arguments = {
-		"building_name" => "courtyard_B",
-		"building_shape" => "Courtyard",
-		"total_floor_area" => 50000,
-		"aspect_ratio" => 0.5,
-		"rotation" => 0.0,
-		"above_grade_floors" => 2,
-		"floor_to_floor_height" => 3.2,
-		"plenum_height" => 1.0
-	}
+
+	# Test other sets of options
+    input_arguments = nil
+
+    #if @use_json_package
+    #  input_arguments = {
+    #      "json_input" => '{ "a_string_argument": "The Default Value",
+    #                  "a_double_argument": 0.0,
+    #                  "a_string_double_argument": 23.0,
+    #                  "a_choice_argument": "choice_1",
+    #                  "a_bool_argument": false }'
+    #  }
+#
+    #else
+      # Set up your argument list to test.
+      input_arguments = {
+        "building_name" => "courtyard",
+        "building_shape" => "Courtyard",
+        "total_floor_area" => 50000,
+        "aspect_ratio" => 0.5,
+        "rotation" => 0.0,
+        "above_grade_floors" => 2,
+        "floor_to_floor_height" => 3.2,
+        "plenum_height" => 1.0
+      }
+    #end
 
     # Create an instance of the measure
     runner = run_measure(input_arguments, model)
-    assert(runner.result.value.valueName == 'Success')
-    #puts show_output(runner.result)
+    puts show_output(runner.result)
 	
-	# Check model is same as previously created version
-    good_model = OpenStudio::Model::Model.new
-	good_model = BTAP::FileIO::load_osm("courtyard_B.osm")
-	
-	diffs = BTAP::FileIO::compare_osm_files(good_model, model)
-	puts diffs unless diffs.size == 0
-    assert(diffs.size == 0, "Creation of courtyard_B model")
-	
-  end
-  
-  
-  def test_rectangular()
-    ####### Test Rectangular Model Creation ######
-	# Create an empty model and define arguments
-    model = OpenStudio::Model::Model.new
-	input_arguments = {
-		"building_name" => "rectangular_A",
-		"building_shape" => "Rectangular",
-		"total_floor_area" => 50000,
-		"aspect_ratio" => 0.5,
-		"rotation" => 0.0,
-		"above_grade_floors" => 5,
-		"floor_to_floor_height" => 3.2,
-		"plenum_height" => 1.0
-	}
+    BTAP::FileIO::save_osm(model, File.join(File.dirname(__FILE__), "output", "saved_file2.osm"))
 
-    # Create an instance of the measure
-    runner = run_measure(input_arguments, model)
     assert(runner.result.value.valueName == 'Success')
-    #puts show_output(runner.result)
-    #BTAP::FileIO::save_osm(model, File.join(File.dirname(__FILE__), ".", "rectangular_A.osm"))
-	
-	# Check model is same as previously created version
-    good_model = OpenStudio::Model::Model.new
-	good_model = BTAP::FileIO::load_osm("rectangular_A.osm")
-	
-	diffs = BTAP::FileIO::compare_osm_files(good_model, model)
-    assert(diffs.size == 0, "Creation of rectangular_A model")
-	puts diffs unless diffs.size == 0
-	
   end
 end

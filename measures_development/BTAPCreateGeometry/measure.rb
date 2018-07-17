@@ -128,7 +128,7 @@ class BTAPCreateGeometry < OpenStudio::Measure::ModelMeasure
     # etc......
     # So write your measure code here!
 		
-	# Name the new model
+	# Name the new model.
 	
 	# Depending on the shape requested create the geometry.
     # "choices" => ["Courtyard", "H shape", "L shape", "Rectangular", "T shape", "U shape"],
@@ -142,7 +142,7 @@ class BTAPCreateGeometry < OpenStudio::Measure::ModelMeasure
 		perimeter_depth=[([a,b].min/9),4.57].min
 		
 		# Generate the geometry
-		model = BTAP::Geometry::Wizards::create_shape_courtyard(model,
+		BTAP::Geometry::Wizards::create_shape_courtyard(model,
           length = a,
           width = b,
           courtyard_length = a/3,
@@ -161,7 +161,7 @@ class BTAPCreateGeometry < OpenStudio::Measure::ModelMeasure
 		perimeter_depth=[([a,b].min/9),4.57].min
 		
 		# Generate the geometry
-		model = BTAP::Geometry::Wizards::create_shape_rectangle(model,
+		BTAP::Geometry::Wizards::create_shape_rectangle(model,
           length = a,
           width = b,
           above_ground_storys = arguments['above_grade_floors'],
@@ -172,14 +172,19 @@ class BTAPCreateGeometry < OpenStudio::Measure::ModelMeasure
           initial_height = 0.0)
 	end
 	
+	# Define standard to use
+    #model_standard = Standard.build('NECB2011')
+
+    # could add some example constructions if we want. This method will populate the model with some
+    # constructions and apply it to the model
+    #model_standard.model_clear_and_set_example_constructions(model)
+	
     #Rotate model.
-	#t = OpenStudio::Transformation::rotation(OpenStudio::EulerAngles.new(0, 0, arguments['rotation']*Math::PI/180.0))
-	#model.getPlanarSurfaceGroups().each {|planar_surface| planar_surface.changeTransformation(t)}
+	t = OpenStudio::Transformation::rotation(OpenStudio::EulerAngles.new(0, 0, arguments['rotation']*Math::PI/180.0))
+	model.getPlanarSurfaceGroups().each {|planar_surface| planar_surface.changeTransformation(t)}
 	
     building = model.getBuilding
 	building.setName(arguments['building_name'])
-	puts building.to_s
-	#building.setNorthAxis(arguments['rotation'])
 	
     return true
   end

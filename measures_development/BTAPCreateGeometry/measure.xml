@@ -1,11 +1,9 @@
 <measure>
   <schema_version>3.0</schema_version>
-  <error>invalid null reference Expected argument 1 of type std::vector&lt; openstudio::measure::OSArgument >::value_type const &amp;, but got NilClass nil
-	in SWIG method 'push'</error>
   <name>btap_create_geometry</name>
   <uid>18bebbaf-e585-4f85-bf1c-d0417ad18df4</uid>
-  <version_id>9980299f-76a7-432e-b300-c46d56b2b9b1</version_id>
-  <version_modified>20180604T194143Z</version_modified>
+  <version_id>3ff4099a-db61-4148-8c25-1d4257615abd</version_id>
+  <version_modified>20180605T182225Z</version_modified>
   <xml_checksum>2609226D</xml_checksum>
   <class_name>BTAPCreateGeometry</class_name>
   <display_name>BTAPCreateGeometry</display_name>
@@ -132,12 +130,6 @@
   </attributes>
   <files>
     <file>
-      <filename>BTAPMeasureHelper.rb</filename>
-      <filetype>rb</filetype>
-      <usage_type>resource</usage_type>
-      <checksum>3D94B7AC</checksum>
-    </file>
-    <file>
       <filename>fileio.rb</filename>
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
@@ -168,17 +160,6 @@
       <checksum>FB63A233</checksum>
     </file>
     <file>
-      <version>
-        <software_program>OpenStudio</software_program>
-        <identifier>2.3.0</identifier>
-        <min_compatible>2.3.0</min_compatible>
-      </version>
-      <filename>measure.rb</filename>
-      <filetype>rb</filetype>
-      <usage_type>script</usage_type>
-      <checksum>81ADCC34</checksum>
-    </file>
-    <file>
       <filename>Standards.Construction.rb</filename>
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
@@ -189,6 +170,35 @@
       <filetype>rb</filetype>
       <usage_type>test</usage_type>
       <checksum>70E79E70</checksum>
+    </file>
+    <file>
+      <filename>BTAPMeasureHelper.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>resource</usage_type>
+      <checksum>798C5C06</checksum>
+    </file>
+    <file>
+      <version>
+        <software_program>OpenStudio</software_program>
+        <identifier>2.3.0</identifier>
+        <min_compatible>2.3.0</min_compatible>
+      </version>
+      <filename>measure.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>script</usage_type>
+      <checksum>523F195F</checksum>
+    </file>
+    <file>
+      <filename>BTAPMeasureHelper-IAM.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>resource</usage_type>
+      <checksum>B30CC120</checksum>
+    </file>
+    <file>
+      <filename>git_revision</filename>
+      <filetype></filetype>
+      <usage_type>resource</usage_type>
+      <checksum>DAE275A8</checksum>
     </file>
   </files>
 </measure>
