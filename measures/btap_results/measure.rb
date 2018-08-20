@@ -10,6 +10,9 @@ require 'openstudio-standards'
 require "#{File.dirname(__FILE__)}/resources/os_lib_reporting"
 require "#{File.dirname(__FILE__)}/resources/os_lib_schedules"
 require "#{File.dirname(__FILE__)}/resources/os_lib_helper_methods"
+require_relative 'resources/BTAPMeasureHelper'
+require_relative 'resources/btap_costing.rb'
+
 
 module Enumerable
   def sum
@@ -77,6 +80,12 @@ class BTAPResults < OpenStudio::Ruleset::ReportingUserScript
     template_type.setDisplayName('NECB template for QAQC')
     template_type.setDefaultValue('NECB2011')
     args << template_type
+
+    output_diet = OpenStudio::Ruleset::OSArgument::makeBoolArgument('output_diet', true)
+    output_diet.setDisplayName('Reduce outputs.')
+    output_diet.setDefaultValue(false)
+    args << output_diet
+
 
     return args
   end # end the arguments method
@@ -949,7 +958,8 @@ class BTAPResults < OpenStudio::Ruleset::ReportingUserScript
     super(runner, user_arguments)
     generate_hourly_report = runner.getStringArgumentValue('generate_hourly_report',user_arguments)
     generate_hourly_report = check_boolean_value(generate_hourly_report,"generate_hourly_report")
-    
+    output_diet = runner.getBoolArgumentValue('output_diet',user_arguments)
+
     if generate_hourly_report
       runHourlyReports(runner, user_arguments)
     end
@@ -971,8 +981,12 @@ class BTAPResults < OpenStudio::Ruleset::ReportingUserScript
     prototype_creator = Standard.build("#{template_type}")
 
     # Perform qaqc
-    qaqc = prototype_creator.init_qaqc(model)
-
+    qaqc = prototype_creator.init_qaqc( model )
+    costing = BTAPCosting.new()
+    costing.load_database()
+    cost_result = costing.cost_audit_all(model)
+    runner.registerValue('result_costing',JSON.pretty_generate(cost_result))
+    qaqc["auto_costing"] = cost_result
     # Perform qaqc
     # necb_2011_qaqc(qaqc) if qaqc[:building][:name].include?("NECB 2011") #had to nodify this because this is specifically for "NECB-2011" standard
     # sanity_check(qaqc)
@@ -1005,12 +1019,13 @@ class BTAPResults < OpenStudio::Ruleset::ReportingUserScript
       #store_data(runner, Base64.strict_encode64( Zlib::Deflate.deflate(monthly_24_hour_weekend_weekday_averages_csv) ), "btap_results_monthly_24_hour_weekend_weekday_averages_csv","-")
     end
     
-
-    #Now store this information into the runner object.  This will be present in the csv file from the OS server and the R dataset. 
-    store_data(runner, Base64.strict_encode64( Zlib::Deflate.deflate(model.to_s) ), "model_osm_zip","-")
-    #Now store this json information into the runner object.  This will be present in the csv file from the OS server and the R dataset. 
+    unless  output_diet
+      #Now store this information into the runner object.  This will be present in the csv file from the OS server and the R dataset.
+      store_data(runner, Base64.strict_encode64( Zlib::Deflate.deflate(model.to_s) ), "model_osm_zip","-")
+    end
+    #Now store this json information into the runner object.  This will be present in the csv file from the OS server and the R dataset.
     store_data(runner, Base64.strict_encode64( Zlib::Deflate.deflate(JSON.pretty_generate(qaqc,:allow_nan => true)) ), "btap_results_json_zip","-")
-    
+
     #Weather file
 
     store_data(runner,  qaqc[:geography][:city],          "geo|City","-")
