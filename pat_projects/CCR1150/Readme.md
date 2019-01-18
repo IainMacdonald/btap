@@ -1,5 +1,5 @@
 ### Summary
-This PAT model was created to evaluate changes proposed in CCR1150. The proposed changes essentially remove the reference syystems 
+This PAT model was created to evaluate changes proposed in CCR1150. The proposed changes essentially remove the reference systems 
 and require the reference and propsed buildings to use the same system.
 
 The assessment approach taken was to model a medium office in Toronto with a standard system and an advanced system (GSHP plus DOAS was selected). 
@@ -21,6 +21,7 @@ BTAP sha-1: d5579c6961b1f8a12ad9418da90f0d5903ecfe0b
 The change envelope R-value measure was edited to allow reduced R-values (by default lower values are ignored)
 The change roof R-value measure was edited to allow reduced R-values (by default lower values are ignored)
 The GSHP and DOAS script was altered to apply the system to all space types that have a defined usage (i.e. do not contain 'undefined' 
-in the space type name)
+in the space type name). This works for the small office archetype but not for the large office (not sure why). Have not tested on any
+other archetype.
 
 ### Results
