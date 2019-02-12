@@ -54,7 +54,7 @@
               "display_name_short": "Building Type.",
               "variable_type": "variable",
               "units": "",
-              "minimum": "LargeOffice",
+              "minimum": "MediumOffice",
               "maximum": "SmallOffice",
               "relation_to_output": null,
               "static_value": "SmallOffice",
@@ -68,22 +68,26 @@
                     "name": "discrete",
                     "values_and_weights": [
                       {
-                        "value": "SmallOffice",
-                        "weight": 0.3333333333333333
+                        "value": "MediumOffice",
+                        "weight": 0.25
                       },
                       {
-                        "value": "SmallOffice",
-                        "weight": 0.3333333333333333
+                        "value": "MediumOffice",
+                        "weight": 0.25
                       },
                       {
-                        "value": "SmallOffice",
-                        "weight": 0.3333333333333333
+                        "value": "MediumOffice",
+                        "weight": 0.25
+                      },
+                      {
+                        "value": "MediumOffice",
+                        "weight": 0.25
                       }
                     ]
                   },
                   {
                     "name": "lower_bounds",
-                    "value": "LargeOffice"
+                    "value": "MediumOffice"
                   },
                   {
                     "name": "upper_bounds",
@@ -112,7 +116,7 @@
                 "name": "template",
                 "value_type": "string",
                 "default_value": "NECB2011",
-                "value": "NECB2011",
+                "value": "NECB2017",
                 "choice_display_names": [
                   "NECB2011",
                   "NECB2015",
@@ -123,10 +127,10 @@
               "display_name_short": "Template.",
               "variable_type": "variable",
               "units": "",
-              "minimum": "NECB2011",
-              "maximum": "NECB2011",
+              "minimum": "NECB2017",
+              "maximum": "NECB2017",
               "relation_to_output": null,
-              "static_value": "NECB2011",
+              "static_value": "NECB2017",
               "uuid": "",
               "version_uuid": "",
               "variable": true,
@@ -137,26 +141,30 @@
                     "name": "discrete",
                     "values_and_weights": [
                       {
-                        "value": "NECB2011",
-                        "weight": 0.3333333333333333
+                        "value": "NECB2017",
+                        "weight": 0.25
                       },
                       {
-                        "value": "NECB2011",
-                        "weight": 0.3333333333333333
+                        "value": "NECB2017",
+                        "weight": 0.25
                       },
                       {
-                        "value": "NECB2011",
-                        "weight": 0.3333333333333333
+                        "value": "NECB2017",
+                        "weight": 0.25
+                      },
+                      {
+                        "value": "NECB2017",
+                        "weight": 0.25
                       }
                     ]
                   },
                   {
                     "name": "lower_bounds",
-                    "value": "NECB2011"
+                    "value": "NECB2017"
                   },
                   {
                     "name": "upper_bounds",
-                    "value": "NECB2011"
+                    "value": "NECB2017"
                   },
                   {
                     "name": "modes",
@@ -256,7 +264,7 @@
               "variable_type": "variable",
               "units": "",
               "minimum": "CAN_AB_Edmonton.Stony.Plain.AP.711270_CWEC2016.epw",
-              "maximum": "CAN_AB_Edmonton.Stony.Plain.AP.711270_CWEC2016.epw",
+              "maximum": "CAN_ON_Toronto.Pearson.Intl.AP.716240_CWEC2016.epw",
               "relation_to_output": null,
               "static_value": "CAN_AB_Edmonton.Stony.Plain.AP.711270_CWEC2016.epw",
               "uuid": "",
@@ -269,16 +277,20 @@
                     "name": "discrete",
                     "values_and_weights": [
                       {
-                        "value": "CAN_AB_Edmonton.Stony.Plain.AP.711270_CWEC2016.epw",
-                        "weight": 0.3333333333333333
+                        "value": "CAN_ON_Toronto.Pearson.Intl.AP.716240_CWEC2016.epw",
+                        "weight": 0.25
                       },
                       {
-                        "value": "CAN_AB_Edmonton.Stony.Plain.AP.711270_CWEC2016.epw",
-                        "weight": 0.3333333333333333
+                        "value": "CAN_ON_Toronto.Pearson.Intl.AP.716240_CWEC2016.epw",
+                        "weight": 0.25
                       },
                       {
-                        "value": "CAN_AB_Edmonton.Stony.Plain.AP.711270_CWEC2016.epw",
-                        "weight": 0.3333333333333333
+                        "value": "CAN_ON_Toronto.Pearson.Intl.AP.716240_CWEC2016.epw",
+                        "weight": 0.25
+                      },
+                      {
+                        "value": "CAN_ON_Toronto.Pearson.Intl.AP.716240_CWEC2016.epw",
+                        "weight": 0.25
                       }
                     ]
                   },
@@ -288,7 +300,7 @@
                   },
                   {
                     "name": "upper_bounds",
-                    "value": "CAN_AB_Edmonton.Stony.Plain.AP.711270_CWEC2016.epw"
+                    "value": "CAN_ON_Toronto.Pearson.Intl.AP.716240_CWEC2016.epw"
                   },
                   {
                     "name": "modes",
@@ -355,15 +367,19 @@
                     "values_and_weights": [
                       {
                         "value": 20.42,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 20.42,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 2,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
+                      },
+                      {
+                        "value": 20.42,
+                        "weight": 0.25
                       }
                     ]
                   },
@@ -419,15 +435,19 @@
                     "values_and_weights": [
                       {
                         "value": 22.99,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 22.99,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 2.2,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
+                      },
+                      {
+                        "value": 22.99,
+                        "weight": 0.25
                       }
                     ]
                   },
@@ -483,15 +503,19 @@
                     "values_and_weights": [
                       {
                         "value": 27,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 27,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 2.7,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
+                      },
+                      {
+                        "value": 27,
+                        "weight": 0.25
                       }
                     ]
                   },
@@ -547,15 +571,19 @@
                     "values_and_weights": [
                       {
                         "value": 27,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 27,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 2.7,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
+                      },
+                      {
+                        "value": 27,
+                        "weight": 0.25
                       }
                     ]
                   },
@@ -611,15 +639,19 @@
                     "values_and_weights": [
                       {
                         "value": 31.03,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 31.03,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 3.1,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
+                      },
+                      {
+                        "value": 31.03,
+                        "weight": 0.25
                       }
                     ]
                   },
@@ -675,15 +707,19 @@
                     "values_and_weights": [
                       {
                         "value": 36.4,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 36.4,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 3.6,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
+                      },
+                      {
+                        "value": 36.4,
+                        "weight": 0.25
                       }
                     ]
                   },
@@ -760,15 +796,19 @@
                     "values_and_weights": [
                       {
                         "value": 31.03,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 31.03,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 3.1,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
+                      },
+                      {
+                        "value": 31.03,
+                        "weight": 0.25
                       }
                     ]
                   },
@@ -824,15 +864,19 @@
                     "values_and_weights": [
                       {
                         "value": 31.03,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 31.03,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 3.1,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
+                      },
+                      {
+                        "value": 31.03,
+                        "weight": 0.25
                       }
                     ]
                   },
@@ -888,15 +932,19 @@
                     "values_and_weights": [
                       {
                         "value": 35.05,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 35.05,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 3.5,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
+                      },
+                      {
+                        "value": 35.05,
+                        "weight": 0.25
                       }
                     ]
                   },
@@ -952,15 +1000,19 @@
                     "values_and_weights": [
                       {
                         "value": 35.05,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 35.05,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 3.5,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
+                      },
+                      {
+                        "value": 35.05,
+                        "weight": 0.25
                       }
                     ]
                   },
@@ -1016,15 +1068,19 @@
                     "values_and_weights": [
                       {
                         "value": 39.99,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 39.99,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 4,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
+                      },
+                      {
+                        "value": 39.99,
+                        "weight": 0.25
                       }
                     ]
                   },
@@ -1080,15 +1136,19 @@
                     "values_and_weights": [
                       {
                         "value": 47.32,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 47.32,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": 4.7,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
+                      },
+                      {
+                        "value": 47.32,
+                        "weight": 0.25
                       }
                     ]
                   },
@@ -1339,15 +1399,19 @@
                     "values_and_weights": [
                       {
                         "value": true,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": false,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": false,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
+                      },
+                      {
+                        "value": true,
+                        "weight": 0.25
                       }
                     ]
                   }
@@ -1358,6 +1422,190 @@
             }
           ],
           "workflow_index": 3
+        },
+        {
+          "name": "btap_ideal_air_loads_measure",
+          "display_name": "BTAPIdealAirLoadsMeasure",
+          "measure_type": "RubyMeasure",
+          "measure_definition_class_name": "BTAPIdealAirLoadsMeasure",
+          "measure_definition_directory": "./measures/btap_ideal_air_loads_measure",
+          "measure_definition_directory_local": "C:\\Files\\Devel\\btap-IAM\\pat_projects\\CCR1150\\measures\\btap_ideal_air_loads_measure",
+          "measure_definition_display_name": "BTAPIdealAirLoadsMeasure",
+          "measure_definition_name": "btap_ideal_air_loads_measure",
+          "measure_definition_name_xml": null,
+          "measure_definition_uuid": "b01d7a54-7061-4c52-9cde-e89aed93f8a2",
+          "measure_definition_version_uuid": "a43900cf-43eb-4a69-bb88-36947ebd9d78",
+          "uuid": "b01d7a54-7061-4c52-9cde-e89aed93f8a2",
+          "version_uuid": "a43900cf-43eb-4a69-bb88-36947ebd9d78",
+          "description": "This measure will remove all HVAC and apply ideal air loads and remove outdoor air.",
+          "taxonomy": "HVAC.Whole System",
+          "arguments": [],
+          "variables": [
+            {
+              "argument": {
+                "display_name": "Skip BTAPIdealAirLoadsMeasure",
+                "display_name_short": "Skip entire measure",
+                "name": "__SKIP__",
+                "value_type": "boolean",
+                "default_value": false,
+                "value": false
+              },
+              "display_name": "Skip BTAPIdealAirLoadsMeasure",
+              "display_name_short": "Skip entire measure",
+              "variable_type": "variable",
+              "units": null,
+              "minimum": false,
+              "maximum": true,
+              "relation_to_output": null,
+              "static_value": false,
+              "variable": true,
+              "uncertainty_description": {
+                "attributes": [
+                  {
+                    "name": "discrete",
+                    "values_and_weights": []
+                  },
+                  {
+                    "name": "lower_bounds",
+                    "value": false
+                  },
+                  {
+                    "name": "upper_bounds",
+                    "value": false
+                  },
+                  {
+                    "name": "modes",
+                    "value": false
+                  },
+                  {
+                    "name": "delta_x",
+                    "value": null
+                  },
+                  {
+                    "name": "stddev",
+                    "value": null
+                  },
+                  {
+                    "name": "discrete",
+                    "values_and_weights": [
+                      {
+                        "value": true,
+                        "weight": 0.25
+                      },
+                      {
+                        "value": true,
+                        "weight": 0.25
+                      },
+                      {
+                        "value": true,
+                        "weight": 0.25
+                      },
+                      {
+                        "value": false,
+                        "weight": 0.25
+                      }
+                    ]
+                  }
+                ],
+                "type": "discrete"
+              },
+              "workflow_index": 0
+            }
+          ],
+          "workflow_index": 4
+        },
+        {
+          "name": "reduce_lighting_loads_by_percentage",
+          "display_name": "Reduce Lighting Loads by Percentage",
+          "measure_type": "RubyMeasure",
+          "measure_definition_class_name": "ReduceLightingLoadsByPercentage",
+          "measure_definition_directory": "./measures/cb04096c-31d0-457e-ad9b-f82af8144533",
+          "measure_definition_directory_local": "C:\\Files\\Devel\\btap-IAM\\pat_projects\\CCR1150\\measures\\cb04096c-31d0-457e-ad9b-f82af8144533",
+          "measure_definition_display_name": "Reduce Lighting Loads by Percentage",
+          "measure_definition_name": "reduce_lighting_loads_by_percentage",
+          "measure_definition_name_xml": null,
+          "measure_definition_uuid": "791f3404-a28b-4a80-ba3f-e15b339e39ea",
+          "measure_definition_version_uuid": "cb04096c-31d0-457e-ad9b-f82af8144533",
+          "uuid": "791f3404-a28b-4a80-ba3f-e15b339e39ea",
+          "version_uuid": "cb04096c-31d0-457e-ad9b-f82af8144533",
+          "description": "The lighting system in this building uses more power per area than is required with the latest lighting technologies.  Replace the lighting system with a newer, more efficient lighting technology.  Newer technologies provide the same amount of light but use less energy in the process.",
+          "taxonomy": "Electric Lighting.Lighting Equipment",
+          "arguments": [
+            {
+              "display_name": "Apply the Measure to a Specific Space Type or to the Entire Model.",
+              "display_name_short": "space_type",
+              "name": "space_type",
+              "value_type": "string",
+              "default_value": "*Entire Building*",
+              "value": "*Entire Building*"
+            },
+            {
+              "display_name": "Lighting Power Reduction (%).",
+              "display_name_short": "lighting_power_reduction_percent",
+              "name": "lighting_power_reduction_percent",
+              "value_type": "double",
+              "default_value": 30,
+              "value": 90
+            },
+            {
+              "display_name": "Increase in Material and Installation Cost for Lighting per Floor Area (%).",
+              "display_name_short": "material_and_installation_cost",
+              "name": "material_and_installation_cost",
+              "value_type": "double",
+              "default_value": 0,
+              "value": 0
+            },
+            {
+              "display_name": "Increase in Demolition Costs for Lighting per Floor Area (%).",
+              "display_name_short": "demolition_cost",
+              "name": "demolition_cost",
+              "value_type": "double",
+              "default_value": 0,
+              "value": 0
+            },
+            {
+              "display_name": "Years Until Costs Start (whole years).",
+              "display_name_short": "years_until_costs_start",
+              "name": "years_until_costs_start",
+              "value_type": "integer",
+              "default_value": 0,
+              "value": 0
+            },
+            {
+              "display_name": "Demolition Costs Occur During Initial Construction?",
+              "display_name_short": "demo_cost_initial_const",
+              "name": "demo_cost_initial_const",
+              "value_type": "boolean",
+              "default_value": false,
+              "value": false
+            },
+            {
+              "display_name": "Expected Life (whole years).",
+              "display_name_short": "expected_life",
+              "name": "expected_life",
+              "value_type": "integer",
+              "default_value": 15,
+              "value": 15
+            },
+            {
+              "display_name": "Increase O & M Costs for Lighting per Floor Area (%).",
+              "display_name_short": "om_cost",
+              "name": "om_cost",
+              "value_type": "double",
+              "default_value": 0,
+              "value": 0
+            },
+            {
+              "display_name": "O & M Frequency (whole years).",
+              "display_name_short": "om_frequency",
+              "name": "om_frequency",
+              "value_type": "integer",
+              "default_value": 1,
+              "value": 1
+            }
+          ],
+          "variables": [],
+          "workflow_index": 5
         },
         {
           "name": "btap_results",
@@ -1394,204 +1642,7 @@
             }
           ],
           "variables": [],
-          "workflow_index": 4
-        },
-        {
-          "name": "openstudio_results",
-          "display_name": "BTAPOpenStudioResults",
-          "measure_type": "ReportingMeasure",
-          "measure_definition_class_name": "OpenStudioResults",
-          "measure_definition_directory": "./measures/btap_open_studio_results",
-          "measure_definition_directory_local": "C:\\Files\\Devel\\btap-IAM\\pat_projects\\CCR1150\\measures\\btap_open_studio_results",
-          "measure_definition_display_name": "BTAPOpenStudioResults",
-          "measure_definition_name": "openstudio_results",
-          "measure_definition_name_xml": null,
-          "measure_definition_uuid": "a7437013-6d3a-414a-8a4e-8bcba833188d",
-          "measure_definition_version_uuid": "18df2d60-b03a-4772-9b1a-8a2c89d79930",
-          "uuid": "a7437013-6d3a-414a-8a4e-8bcba833188d",
-          "version_uuid": "18df2d60-b03a-4772-9b1a-8a2c89d79930",
-          "description": "This measure creates high level tables and charts pulling both from model inputs and EnergyPlus results. It has building level information as well as detail on space types, thermal zones, HVAC systems, envelope characteristics, and economics. Click the heading above a chart to view a table of the chart data.",
-          "taxonomy": "Whole Building.Space Types",
-          "arguments": [
-            {
-              "display_name": "Reduce outputs.",
-              "display_name_short": "output_diet",
-              "name": "output_diet",
-              "value_type": "boolean",
-              "default_value": false,
-              "value": false
-            },
-            {
-              "display_name": "Model Summary",
-              "display_name_short": "building_summary_section",
-              "name": "building_summary_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "Annual Overview",
-              "display_name_short": "annual_overview_section",
-              "name": "annual_overview_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "Monthly Overview",
-              "display_name_short": "monthly_overview_section",
-              "name": "monthly_overview_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "Utility Bills/Rates",
-              "display_name_short": "utility_bills_rates_section",
-              "name": "utility_bills_rates_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "Envelope",
-              "display_name_short": "envelope_section_section",
-              "name": "envelope_section_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "Space Type Breakdown",
-              "display_name_short": "space_type_breakdown_section",
-              "name": "space_type_breakdown_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "Space Type Summary",
-              "display_name_short": "space_type_details_section",
-              "name": "space_type_details_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "Interior Lighting Summary",
-              "display_name_short": "interior_lighting_section",
-              "name": "interior_lighting_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "Plug Loads Summary",
-              "display_name_short": "plug_loads_section",
-              "name": "plug_loads_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "Exterior Lighting",
-              "display_name_short": "exterior_light_section",
-              "name": "exterior_light_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "Water Use Equipment",
-              "display_name_short": "water_use_section",
-              "name": "water_use_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "HVAC Load Profiles",
-              "display_name_short": "hvac_load_profile",
-              "name": "hvac_load_profile",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "Zone Conditions",
-              "display_name_short": "zone_condition_section",
-              "name": "zone_condition_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "Zone Overview",
-              "display_name_short": "zone_summary_section",
-              "name": "zone_summary_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "Zone Equipment Detail",
-              "display_name_short": "zone_equipment_detail_section",
-              "name": "zone_equipment_detail_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "Air Loops Detail",
-              "display_name_short": "air_loops_detail_section",
-              "name": "air_loops_detail_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "Plant Loops Detail",
-              "display_name_short": "plant_loops_detail_section",
-              "name": "plant_loops_detail_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "Outdoor Air",
-              "display_name_short": "outdoor_air_section",
-              "name": "outdoor_air_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "Cash Flow",
-              "display_name_short": "cost_summary_section",
-              "name": "cost_summary_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "Site and Source Summary",
-              "display_name_short": "source_energy_section",
-              "name": "source_energy_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            },
-            {
-              "display_name": "Schedule Overview",
-              "display_name_short": "schedules_overview_section",
-              "name": "schedules_overview_section",
-              "value_type": "boolean",
-              "default_value": true,
-              "value": true
-            }
-          ],
-          "variables": [],
-          "workflow_index": 5
+          "workflow_index": 6
         }
       ],
       "algorithm": {
@@ -1605,8 +1656,8 @@
             {
               "measure_name": "btap_create_necb_prototype_building",
               "workflow_index": 0,
-              "name": "SmallOffice Edmonton",
-              "description": "Option 1 Description: This measure creates an NECB prototype building from scratch and uses it as the base for an analysis."
+              "name": "MediumOffice Toronto",
+              "description": "Option 2 Description: This measure creates an NECB prototype building from scratch and uses it as the base for an analysis."
             },
             {
               "measure_name": "btap_set_wall_conductance_by_necb_climate_zone",
@@ -1627,16 +1678,22 @@
               "description": "Measure replaces existing HVAC system (if any) with a Ground Source Heat Pump (GSHP) with DOAS HVAC system (one DOAS per floor).  The GSHP with DOAS system (centralized DOAS, with zone level conditioning) is applied to all space types except storage spaces like stairwells, mechanical/electrical rooms etc."
             },
             {
-              "measure_name": "btap_results",
+              "measure_name": "btap_ideal_air_loads_measure",
               "workflow_index": 4,
-              "name": "BTAP results",
-              "description": "Option 1 Description: This measure creates BTAP result values used for NRCan analyses."
+              "name": "btap_ideal_air_loads_measure",
+              "description": "This measure will remove all HVAC and apply ideal air loads and remove outdoor air."
             },
             {
-              "measure_name": "openstudio_results",
+              "measure_name": "reduce_lighting_loads_by_percentage",
               "workflow_index": 5,
-              "name": "BTAP OpenStudio Results",
-              "description": "Option 1 Description: This measure creates high level tables and charts pulling both from model inputs and EnergyPlus results. It has building level information as well as detail on space types, thermal zones, HVAC systems, envelope characteristics, and economics. Click the heading above a chart to view a table of the chart data."
+              "name": "90% less lighting",
+              "description": "Option 1 Description: The lighting system in this building uses more power per area than is required with the latest lighting technologies.  Replace the lighting system with a newer, more efficient lighting technology.  Newer technologies provide the same amount of light but use less energy in the process."
+            },
+            {
+              "measure_name": "btap_results",
+              "workflow_index": 6,
+              "name": "BTAP results",
+              "description": "Option 1 Description: This measure creates BTAP result values used for NRCan analyses."
             }
           ]
         },
@@ -1646,8 +1703,8 @@
             {
               "measure_name": "btap_create_necb_prototype_building",
               "workflow_index": 0,
-              "name": "SmallOffice Edmonton",
-              "description": "Option 1 Description: This measure creates an NECB prototype building from scratch and uses it as the base for an analysis."
+              "name": "MediumOffice Toronto",
+              "description": "Option 2 Description: This measure creates an NECB prototype building from scratch and uses it as the base for an analysis."
             },
             {
               "measure_name": "btap_set_wall_conductance_by_necb_climate_zone",
@@ -1668,16 +1725,22 @@
               "description": "Option 1 Description: Measure replaces existing HVAC system (if any) with a Ground Source Heat Pump (GSHP) with DOAS HVAC system (one DOAS per floor).  The GSHP with DOAS system (centralized DOAS, with zone level conditioning) is applied to all space types except storage spaces like stairwells, mechanical/electrical rooms etc."
             },
             {
-              "measure_name": "btap_results",
+              "measure_name": "btap_ideal_air_loads_measure",
               "workflow_index": 4,
-              "name": "BTAP results",
-              "description": "Option 1 Description: This measure creates BTAP result values used for NRCan analyses."
+              "name": "btap_ideal_air_loads_measure",
+              "description": "This measure will remove all HVAC and apply ideal air loads and remove outdoor air."
             },
             {
-              "measure_name": "openstudio_results",
+              "measure_name": "reduce_lighting_loads_by_percentage",
               "workflow_index": 5,
-              "name": "BTAP OpenStudio Results",
-              "description": "Option 1 Description: This measure creates high level tables and charts pulling both from model inputs and EnergyPlus results. It has building level information as well as detail on space types, thermal zones, HVAC systems, envelope characteristics, and economics. Click the heading above a chart to view a table of the chart data."
+              "name": "90% less lighting",
+              "description": "Option 1 Description: The lighting system in this building uses more power per area than is required with the latest lighting technologies.  Replace the lighting system with a newer, more efficient lighting technology.  Newer technologies provide the same amount of light but use less energy in the process."
+            },
+            {
+              "measure_name": "btap_results",
+              "workflow_index": 6,
+              "name": "BTAP results",
+              "description": "Option 1 Description: This measure creates BTAP result values used for NRCan analyses."
             }
           ]
         },
@@ -1687,8 +1750,8 @@
             {
               "measure_name": "btap_create_necb_prototype_building",
               "workflow_index": 0,
-              "name": "SmallOffice Edmonton",
-              "description": "Option 1 Description: This measure creates an NECB prototype building from scratch and uses it as the base for an analysis."
+              "name": "MediumOffice Toronto",
+              "description": "Option 2 Description: This measure creates an NECB prototype building from scratch and uses it as the base for an analysis."
             },
             {
               "measure_name": "btap_set_wall_conductance_by_necb_climate_zone",
@@ -1709,16 +1772,69 @@
               "description": "Option 1 Description: Measure replaces existing HVAC system (if any) with a Ground Source Heat Pump (GSHP) with DOAS HVAC system (one DOAS per floor).  The GSHP with DOAS system (centralized DOAS, with zone level conditioning) is applied to all space types except storage spaces like stairwells, mechanical/electrical rooms etc."
             },
             {
-              "measure_name": "btap_results",
+              "measure_name": "btap_ideal_air_loads_measure",
               "workflow_index": 4,
-              "name": "BTAP results",
-              "description": "Option 1 Description: This measure creates BTAP result values used for NRCan analyses."
+              "name": "btap_ideal_air_loads_measure",
+              "description": "This measure will remove all HVAC and apply ideal air loads and remove outdoor air."
             },
             {
-              "measure_name": "openstudio_results",
+              "measure_name": "reduce_lighting_loads_by_percentage",
               "workflow_index": 5,
-              "name": "BTAP OpenStudio Results",
-              "description": "Option 1 Description: This measure creates high level tables and charts pulling both from model inputs and EnergyPlus results. It has building level information as well as detail on space types, thermal zones, HVAC systems, envelope characteristics, and economics. Click the heading above a chart to view a table of the chart data."
+              "name": "90% less lighting",
+              "description": "Option 1 Description: The lighting system in this building uses more power per area than is required with the latest lighting technologies.  Replace the lighting system with a newer, more efficient lighting technology.  Newer technologies provide the same amount of light but use less energy in the process."
+            },
+            {
+              "measure_name": "btap_results",
+              "workflow_index": 6,
+              "name": "BTAP results",
+              "description": "Option 1 Description: This measure creates BTAP result values used for NRCan analyses."
+            }
+          ]
+        },
+        {
+          "name": "IdealLoads",
+          "options": [
+            {
+              "measure_name": "btap_create_necb_prototype_building",
+              "workflow_index": 0,
+              "name": "MediumOffice Toronto",
+              "description": "Option 2 Description: This measure creates an NECB prototype building from scratch and uses it as the base for an analysis."
+            },
+            {
+              "measure_name": "btap_set_wall_conductance_by_necb_climate_zone",
+              "workflow_index": 1,
+              "name": "Default Wall R values",
+              "description": "Option 1 Description: Modifies wall conductances by climate zone."
+            },
+            {
+              "measure_name": "btap_set_roof_conductance_by_necb_climate_zone",
+              "workflow_index": 2,
+              "name": "Default Roof R values",
+              "description": "Option 1 Description: Modifies roof conductances by climate zone."
+            },
+            {
+              "measure_name": "replace_hva_cwith_gsh_pand_doas",
+              "workflow_index": 3,
+              "name": "replace_hva_cwith_gsh_pand_doas",
+              "description": "Measure replaces existing HVAC system (if any) with a Ground Source Heat Pump (GSHP) with DOAS HVAC system (one DOAS per floor).  The GSHP with DOAS system (centralized DOAS, with zone level conditioning) is applied to all space types except storage spaces like stairwells, mechanical/electrical rooms etc."
+            },
+            {
+              "measure_name": "btap_ideal_air_loads_measure",
+              "workflow_index": 4,
+              "name": "Ideal Loads",
+              "description": "Option 1 Description: This measure will remove all HVAC and apply ideal air loads and remove outdoor air."
+            },
+            {
+              "measure_name": "reduce_lighting_loads_by_percentage",
+              "workflow_index": 5,
+              "name": "90% less lighting",
+              "description": "Option 1 Description: The lighting system in this building uses more power per area than is required with the latest lighting technologies.  Replace the lighting system with a newer, more efficient lighting technology.  Newer technologies provide the same amount of light but use less energy in the process."
+            },
+            {
+              "measure_name": "btap_results",
+              "workflow_index": 6,
+              "name": "BTAP results",
+              "description": "Option 1 Description: This measure creates BTAP result values used for NRCan analyses."
             }
           ]
         }

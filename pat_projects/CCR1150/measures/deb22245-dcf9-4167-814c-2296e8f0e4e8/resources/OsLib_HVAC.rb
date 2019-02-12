@@ -206,7 +206,7 @@ module OsLib_HVAC
 				if comp.to_WaterUseConnections.is_initialized or comp.to_CoilWaterHeatingDesuperheater.is_initialized
 					usedForSWHOrRefrigeration = true
 					runner.registerWarning("#{plantLoop.name} is used for SWH or refrigeration. Loop will not be deleted.")
-				elsif comp.name.to_s.include? "Coil" and comp.name.to_s != "Coil Heating Water 1" and comp.name.to_s != "Coil Cooling Water 1"#to_CoilWaterHeatingDesuperheater.is_initialized or comp.name.to_s.include? "coil"
+				elsif comp.name.to_s.include? "Coil" and !comp.name.to_s.start_with?("Coil Heating Water ") and !comp.name.to_s.start_with?("Coil Cooling Water ")#to_CoilWaterHeatingDesuperheater.is_initialized or comp.name.to_s.include? "coil"
 					runner.registerWarning("#{plantLoop.name} has coils used by Zone HVAC components. Loop will not be deleted.")
 					usedForZoneHCCoils = true
 				end
@@ -399,7 +399,8 @@ module OsLib_HVAC
     end
     # chilled water
     if options["allHVAC"]["primary"]["cool"] == "Water" or options["allHVAC"]["secondary"]["cool"] == "Water" or zoneHVACChilledWaterPlant.include? options["allHVAC"]["zone"]
-      schedulesHVAC["chilled_water"] = OsLib_Schedules.createComplexSchedule(model, {"name" => "CW-Loop-Temp-Schedule",
+      runner.registerInfo("Creating water loop schedule: #{options["allHVAC"]["primary"]["cool"]}")
+	  schedulesHVAC["chilled_water"] = OsLib_Schedules.createComplexSchedule(model, {"name" => "CW-Loop-Temp-Schedule",
                                                                                      "default_day" => ["All Days",[24,6.7]]})
     end
     # heat pump condenser loop schedules
@@ -874,6 +875,7 @@ module OsLib_HVAC
           air_loop_comps << heating_coil
         end  
         # create cooling coil
+		runner.registerInfo("Creating water loop: #{options["primaryHVAC"]["cool"]}")
         if options["primaryHVAC"]["cool"] == "Water"
           # water coil
           cooling_coil = OpenStudio::Model::CoilCoolingWater.new(model, model.alwaysOnDiscreteSchedule())
