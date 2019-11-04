@@ -305,6 +305,7 @@ class BTAPCreateGeometry < OpenStudio::Measure::ModelMeasure
     building.setStandardsBuildingType("#{building_type}")
     building.setStandardsNumberOfStories(above_grade_floors)
     building.setStandardsNumberOfAboveGroundStories(above_grade_floors)
+	building_type_orig= building_type
 
     # Set design days
     OpenStudio::Model::DesignDay.new(model)
@@ -387,20 +388,9 @@ class BTAPCreateGeometry < OpenStudio::Measure::ModelMeasure
     finishing_constructionSets = model.getDefaultConstructionSets
     runner.registerInfo("The building finished with #{finishing_spaceTypes.size} space type.")
 
-    # Map building type to a building evel space usage in NECB
-    if building_type == "School/university"
-      building_type = "School"
-    elsif building_type == "Hotel/Motel"
-      building_type = "Hotel"
-    elsif building_type == "Dining - cafeteria/fast food"
-      building_type = "Dining - cafeteria"
-    end
-
     #save the model
-    output_file_path = OpenStudio::Path.new(File.dirname(__FILE__) + "osm_dir/#{building_shape}_#{building_type}_#{template}.osm")
-    name_osm = "#{building_shape}/#{building_type}/#{template}_#{above_grade_floors}_#{total_floor_area.to_i}"
-    BTAP::FileIO::save_osm(model, File.join(File.dirname(__FILE__), "output_osm_files", "#{name_osm}.osm"))
-
+    name_osm = "#{building_shape}/#{building_type_orig}"
+    BTAP::FileIO::save_osm(model, File.join(File.dirname(__FILE__), "#{name_osm}.osm"))
     return true
   end
 end
